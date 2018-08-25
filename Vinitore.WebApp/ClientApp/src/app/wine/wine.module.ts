@@ -1,3 +1,4 @@
+import { WineService } from './wine.service';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { CommonModule } from '@angular/common';
@@ -17,6 +18,7 @@ import { HttpClientModule } from '@angular/common/http';
     WineRoutingModule
   ],
   providers:[
+    WineService
   ],
   exports: [
     WineRoutingModule
