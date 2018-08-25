@@ -1,11 +1,14 @@
 .app {
+    border-top: 4px solid $blue-3;
+
     &__header {
         display: flex;
         align-items: center;
     }
 
     &__logo {
-        margin-right: 40px;
+        width: 160px;
+        margin-right: 20px;
     }
 
     &__navigation {

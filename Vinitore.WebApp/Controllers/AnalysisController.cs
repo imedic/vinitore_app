@@ -9,29 +9,29 @@ namespace Vinitore.WebApp.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class WineController : ControllerBase
+    public class AnalysisController : ControllerBase
     {
-        // GET: api/Wine
+        // GET: api/Analysis
         [HttpGet]
         public IEnumerable<string> Get()
         {
             return new string[] { "value1", "value2" };
         }
 
-        // GET: api/Wine/5
-        [HttpGet("{id}", Name = "GetWine")]
+        // GET: api/Analysis/5
+        [HttpGet("{id}", Name = "Get")]
         public string Get(int id)
         {
             return "value";
         }
 
-        // POST: api/Wine
+        // POST: api/Analysis
         [HttpPost]
         public void Post([FromBody] string value)
         {
         }
 
-        // PUT: api/Wine/5
+        // PUT: api/Analysis/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] string value)
         {

@@ -1,19 +1,26 @@
 <header class="header app__header">
     <div class="app__logo">
         <a class="btn btn--image" [routerLink]='["/"]'>
-            <img class="image image--logo" alt="Vinitore" src="https://www.fillmurray.com/140/100" />
+            <img class="image image--logo" alt="Vinitore" src="/assets/logo.svg" />
         </a>
     </div>
     <div class="app__navigation">
         <nav class="nav">
-            <div class="nav__item" [routerLinkActive]='["nav__item--active"]' [routerLinkActiveOptions]='{ exact: true }'>
-                <a class="nav__item-link" [routerLink]='["/"]'>Home</a>
+            <div class="nav__item">
+                <a class="nav__item-link" 
+                    [routerLink]='["/"]'
+                    [routerLinkActive]='["nav__item-link--active"]' 
+                    [routerLinkActiveOptions]='{ exact: true }'>Home</a>
             </div>
-            <div class="nav__item" [routerLinkActive]='["nav__item--active"]'>
-                <a class="nav__item-link" [routerLink]='["/counter"]'>Counter</a>
+            <div class="nav__item">
+                <a class="nav__item-link" 
+                    [routerLink]='["/counter"]'
+                    [routerLinkActive]='["nav__item-link--active"]'>Counter</a>
             </div>
-            <div class="nav__item" [routerLinkActive]='["nav__item--active"]'>
-                <a class="nav__item-link" [routerLink]='["/fetch-data"]'>Fetch Data</a>
+            <div class="nav__item">
+                <a class="nav__item-link" 
+                [routerLink]='["/fetch-data"]'
+                [routerLinkActive]='["nav__item-link--active"]'>Fetch Data</a>
             </div>
         </nav>
     </div>
