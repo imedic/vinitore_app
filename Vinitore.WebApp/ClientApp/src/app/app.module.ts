@@ -12,6 +12,7 @@ import { HomeComponent } from './home/home.component';
 import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { WineModule } from './wine/wine.module';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -25,14 +26,10 @@ import { WineModule } from './wine/wine.module';
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
-    RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'counter', component: CounterComponent },
-      { path: 'fetch-data', component: FetchDataComponent },
-    ]),
     BarrelModule,
     WineModule,
-    AnalysisModule
+    AnalysisModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
