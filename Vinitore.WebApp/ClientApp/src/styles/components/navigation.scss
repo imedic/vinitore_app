@@ -1,0 +1,11 @@
+.nav {
+    display: flex;
+
+    &__item {
+        margin: 0 15px;
+    }
+
+    &__item-link {
+        @include button-link-variant(blue)
+    }
+}

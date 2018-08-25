@@ -1,33 +1,20 @@
-<div class='main-nav'>
-    <div class='navbar navbar-inverse'>
-        <div class='navbar-header'>
-            <button type='button' class='navbar-toggle' data-toggle='collapse' data-target='.navbar-collapse' [attr.aria-expanded]='isExpanded' (click)='toggle()'>
-                <span class='sr-only'>Toggle navigation</span>
-                <span class='icon-bar'></span>
-                <span class='icon-bar'></span>
-                <span class='icon-bar'></span>
-            </button>
-            <a class='navbar-brand' [routerLink]='["/"]'>Vinitore.WebApp</a>
-        </div>
-        <div class='clearfix'></div>
-        <div class='navbar-collapse collapse' [ngClass]='{ "in": isExpanded }'>
-            <ul class='nav navbar-nav'>
-                <li [routerLinkActive]='["link-active"]' [routerLinkActiveOptions]='{ exact: true }'>
-                    <a [routerLink]='["/"]' (click)='collapse()'>
-                        <span class='glyphicon glyphicon-home'></span> Home
-                    </a>
-                </li>
-                <li [routerLinkActive]='["link-active"]'>
-                    <a [routerLink]='["/counter"]' (click)='collapse()'>
-                        <span class='glyphicon glyphicon-education'></span> Counter
-                    </a>
-                </li>
-                <li [routerLinkActive]='["link-active"]'>
-                    <a [routerLink]='["/fetch-data"]' (click)='collapse()'>
-                        <span class='glyphicon glyphicon-th-list'></span> Fetch data
-                    </a>
-                </li>
-            </ul>
-        </div>
+<header class="header app__header">
+    <div class="app__logo">
+        <a class="btn btn--image" [routerLink]='["/"]'>
+            <img class="image image--logo" alt="Vinitore" src="https://www.fillmurray.com/140/100" />
+        </a>
     </div>
-</div>
+    <div class="app__navigation">
+        <nav class="nav">
+            <div class="nav__item" [routerLinkActive]='["nav__item--active"]' [routerLinkActiveOptions]='{ exact: true }'>
+                <a class="nav__item-link" [routerLink]='["/"]'>Home</a>
+            </div>
+            <div class="nav__item" [routerLinkActive]='["nav__item--active"]'>
+                <a class="nav__item-link" [routerLink]='["/counter"]'>Counter</a>
+            </div>
+            <div class="nav__item" [routerLinkActive]='["nav__item--active"]'>
+                <a class="nav__item-link" [routerLink]='["/fetch-data"]'>Fetch Data</a>
+            </div>
+        </nav>
+    </div>
+</header>
