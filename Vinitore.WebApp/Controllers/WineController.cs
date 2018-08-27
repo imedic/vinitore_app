@@ -4,8 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Winitore.Wine.Core.Query;
-using Winitore.Wine.Core.Query.Queries;
+using Vinitore.Query;
+using Vinitore.Query.Queries;
 
 namespace Vinitore.WebApp.Controllers
 {

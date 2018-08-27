@@ -1,9 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using Vinitore.Infrastructure.Queries;
-using Winitore.Wine.Core.Query.Queries;
+using Vinitore.Query.Queries;
 
 namespace Vinitore.Infrastructure
 {

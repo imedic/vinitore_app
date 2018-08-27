@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Vinitore.Infrastructure.Query;
-using Winitore.Domain.Core.Query.Views;
-using Winitore.Wine.Core.Query.Queries;
+using Vinitore.Domain.Query.Views;
+using Vinitore.Query.Queries;
 
 namespace Vinitore.Infrastructure.Queries
 {

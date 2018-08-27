@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Winitore.Domain.Core.Enums;
+using Vinitore.Domain.Enums;
 
-namespace Winitore.Domain.Core.Query.Views
+namespace Vinitore.Domain.Query.Views
 {
     public class WineGridViewModel
     {

@@ -7,7 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Vinitore.Infrastructure;
 using Vinitore.Infrastructure.Queries;
-using Winitore.Wine.Core.Query.Queries;
+using Vinitore.Query.Queries;
 
 namespace Vinitore.WebApp
 {

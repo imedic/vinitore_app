@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Winitore.Domain.Core.Enums
+namespace Vinitore.Domain.Enums
 {
     public enum WineType
     {

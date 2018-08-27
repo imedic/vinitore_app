@@ -26,7 +26,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Vinitore.Infrastructure\Vinitore.Infrastructure.csproj" />
-    <ProjectReference Include="..\Winitore.Wine.Core\Vinitore.Domain.csproj" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

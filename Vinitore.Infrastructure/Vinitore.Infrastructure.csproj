@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Winitore.Wine.Core\Vinitore.Domain.csproj" />
+    <ProjectReference Include="..\Vinitore.Domain\Vinitore.Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>
