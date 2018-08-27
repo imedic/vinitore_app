@@ -15,5 +15,6 @@ namespace Vinitore.Infrastructure.DbModel
 
         [Column("name")]
         public string Name { get; set; }
+        public List<BarrelTb> Barrels { get; set; }
     }
 }

@@ -5,7 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="AggregatesModel\BarrelAggregate\" />
     <Folder Include="AggregatesModel\AnalysisAggregate\" />
     <Folder Include="AggregatesModel\WineAggregate\" />
     <Folder Include="Command\" />
