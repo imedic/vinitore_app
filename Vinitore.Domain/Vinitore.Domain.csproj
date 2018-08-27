@@ -4,10 +4,4 @@
     <TargetFramework>netcoreapp2.1</TargetFramework>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Folder Include="AggregatesModel\AnalysisAggregate\" />
-    <Folder Include="AggregatesModel\WineAggregate\" />
-    <Folder Include="Command\" />
-  </ItemGroup>
-
 </Project>
