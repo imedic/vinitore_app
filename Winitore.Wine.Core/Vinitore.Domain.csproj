@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="AggregatesModel\BarrelAggregate\" />
+    <Folder Include="AggregatesModel\AnalysisAggregate\" />
+    <Folder Include="AggregatesModel\WineAggregate\" />
+    <Folder Include="Command\" />
+  </ItemGroup>
+
+</Project>

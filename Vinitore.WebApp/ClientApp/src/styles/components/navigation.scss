@@ -13,8 +13,8 @@
         border-bottom: 2px solid transparent;
 
         &.nav__item-link--active {
-            @include reset-link($green-2);
-            border-bottom-color: $green-2;
+            @include reset-link($green-3);
+            border-bottom-color: $green-3;
         }
     }
 }

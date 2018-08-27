@@ -1,0 +1,54 @@
+.btn {
+    @include reset-button();
+    @include button-variant(
+        white, 
+        $gray-3, 
+        $gray-3, 
+        white, 
+        $gray-2, 
+        $gray-2
+    );
+    border-width: 1px;
+    border-style: solid;
+    transition: $transition-base;
+    height: 35px;
+    padding: 0 20px;
+    border-radius: 4px;
+
+    &--primary {
+        @include button-variant(
+            white, 
+            $green-3, 
+            $green-3, 
+            white, 
+            $green-2, 
+            $green-2
+        );
+    }
+
+    &--icon {
+        width: 35px;
+        height: 35px;
+        padding: 0;
+    }
+
+    &--icon-rounded {
+        border-radius: 50%;
+    }
+}
+
+.btn-group {
+    display: flex;
+
+    .btn {
+        border-radius: 0;
+
+        &:first-of-type {
+            border-radius: 4px 0 0 4px;
+        }
+
+        &:last-of-type {
+            border-radius: 0 4px 4px 0;
+        }
+    }
+}

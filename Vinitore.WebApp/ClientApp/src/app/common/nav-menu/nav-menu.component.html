@@ -1,6 +1,6 @@
 <header class="header app__header">
     <div class="app__logo">
-        <a class="btn btn--image" [routerLink]='["/"]'>
+        <a class="link" [routerLink]='["/"]'>
             <img class="image image--logo" alt="Vinitore" src="/assets/logo.svg" />
         </a>
     </div>
@@ -8,19 +8,18 @@
         <nav class="nav">
             <div class="nav__item">
                 <a class="nav__item-link" 
-                    [routerLink]='["/"]'
-                    [routerLinkActive]='["nav__item-link--active"]' 
-                    [routerLinkActiveOptions]='{ exact: true }'>Home</a>
+                    [routerLink]='["/wines"]'
+                    [routerLinkActive]='["nav__item-link--active"]'>Wines</a>
             </div>
             <div class="nav__item">
                 <a class="nav__item-link" 
-                    [routerLink]='["/counter"]'
-                    [routerLinkActive]='["nav__item-link--active"]'>Counter</a>
+                    [routerLink]='["/barrels"]'
+                    [routerLinkActive]='["nav__item-link--active"]'>Barrels</a>
             </div>
             <div class="nav__item">
                 <a class="nav__item-link" 
-                [routerLink]='["/fetch-data"]'
-                [routerLinkActive]='["nav__item-link--active"]'>Fetch Data</a>
+                [routerLink]='["/analysis"]'
+                [routerLinkActive]='["nav__item-link--active"]'>Analysis</a>
             </div>
         </nav>
     </div>

@@ -2,3 +2,9 @@ $container-width: 1280px;
 
 $screen-tablet: 1300px;
 $screen-mobile: 580px;
+
+$border-color: $gray-5;
+$border-default: 2px solid $border-color;
+$box-shadow-default: 0 1px 5px 0 rgba(0, 0, 0, 0.1);
+$input-height: 40px;
+$transition-base: 0.3s ease-in-out;

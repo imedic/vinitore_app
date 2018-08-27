@@ -5,6 +5,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Vinitore.Infrastructure;
+using Vinitore.Infrastructure.Queries;
+using Winitore.Wine.Core.Query.Queries;
 
 namespace Vinitore.WebApp
 {
@@ -21,7 +24,7 @@ namespace Vinitore.WebApp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-
+            DomainIocModule.AddLibrary(services);
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {

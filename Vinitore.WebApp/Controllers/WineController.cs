@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Winitore.Wine.Core.Query;
+using Winitore.Wine.Core.Query.Queries;
 
 namespace Vinitore.WebApp.Controllers
 {
@@ -11,11 +13,20 @@ namespace Vinitore.WebApp.Controllers
     [ApiController]
     public class WineController : ControllerBase
     {
+        private readonly IWineQuery _wineQuery;
+
+        public WineController(
+            IWineQuery wineQuery
+        )
+        {
+            _wineQuery = wineQuery;
+        }
         // GET: api/Wine
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IActionResult Get()
         {
-            return new string[] { "value1", "value2" };
+            var test = _wineQuery.GetWines();
+            return Ok(test.ToArray());
         }
 
         // GET: api/Wine/5

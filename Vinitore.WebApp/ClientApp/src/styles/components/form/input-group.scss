@@ -1,0 +1,43 @@
+.input-group {
+  display: flex;
+  flex-wrap: nowrap;
+
+  &--merged {
+    .input {
+      &:focus {
+        z-index: 1;
+      }
+      
+      &:not(:last-child) {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+    }
+
+    .input-group__addon {
+      padding: 0 10px;
+      background: white;
+      border: $border-default;
+
+      &--prepend {
+        border-radius: 2px 0 0 2px;
+        border-right: 0;
+
+        &~.input {
+          border-top-left-radius: 0;
+          border-bottom-left-radius: 0;
+        }
+      }
+
+      &--append {
+        border-radius: 0 2px 2px 0;
+        border-left: 0;
+      }
+    }
+  }
+}
+
+.input-group__addon {
+  display: flex;
+  align-items: center;
+}

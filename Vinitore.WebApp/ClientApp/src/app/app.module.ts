@@ -1,3 +1,4 @@
+import { NavMenuComponent } from './common/nav-menu/nav-menu.component';
 import { AnalysisModule } from './analysis/analysis.module';
 import { BarrelModule } from './barrel/barrel.module';
 import { BrowserModule } from '@angular/platform-browser';
@@ -7,20 +8,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { NavMenuComponent } from './nav-menu/nav-menu.component';
-import { HomeComponent } from './home/home.component';
-import { CounterComponent } from './counter/counter.component';
-import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { WineModule } from './wine/wine.module';
 import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavMenuComponent,
-    HomeComponent,
-    CounterComponent,
-    FetchDataComponent
+    NavMenuComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

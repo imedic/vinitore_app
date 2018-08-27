@@ -11,6 +11,17 @@
     }
 }
 
+@mixin reset-button() {
+    border: 0;
+    box-shadow: 0;
+    display: inline-block;
+    cursor: pointer;
+
+    &:focus {
+        outline: 0;
+    }
+}
+
 @mixin button-variant(
     $color, 
     $background, 
@@ -40,6 +51,18 @@
         border-color: $border;
       }
     }
+
+    &.btn--outline {
+        color: $background;
+        background-color: white;
+
+        &:hover,
+        &:focus {
+            color: $background-hover;
+            background-color: white;
+            border-color: $border-hover;      
+        }
+    }
 }
 
 @mixin button-link-variant(
@@ -54,4 +77,35 @@
         transparent,
         transparent
     );
+}
+
+@mixin icon-base() {
+    font-family: $icon-font;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    line-height: 1;
+    font-weight: 900;
+}
+
+@mixin input-default() {
+    font-family: $font-family-base;
+    height: $input-height;
+    line-height: $input-height;
+    border-radius: 2px;
+    border: $border-default;
+    padding: 0 15px;
+    color: $gray-3;
+    font-size: 16px;
+    transition: border-color $transition-base;
+    display: inline-block;
+    background-color: white;
+
+    &:focus {
+        border-color: $gray-4;
+        outline: 0;
+    }
 }

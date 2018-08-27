@@ -1,19 +1,20 @@
+import { analysisRoutes } from './analysis/analysis-routing-module';
+import { AnalysisComponent } from './analysis/analysis.component';
+import { BarrelComponent } from './barrel/barrel.component';
 import { WineComponent } from './wine/wine.component';
 import { AppComponent } from './app.component';
 
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from './home/home.component';
-import { CounterComponent } from './counter/counter.component';
-import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { wineRoutes } from './wine/wine-routing-module';
+import { barrelRoutes } from './barrel/barrel-routing-module';
     
-    
+
 const routes: Routes = [
-    { path: '', component: HomeComponent, pathMatch: 'full' },
-    { path: 'counter', component: CounterComponent },
-    { path: 'fetch-data', component: FetchDataComponent },
-    { path: 'wines', component: WineComponent, children: [wineRoutes]}
+    { path: '', redirectTo: '/wines', pathMatch: 'full' },
+    { path: 'wines', component: WineComponent, children: [wineRoutes]},
+    { path: 'barrels', component: BarrelComponent, children: [barrelRoutes]},
+    { path: 'analysis', component: AnalysisComponent, children: [analysisRoutes]}
 ]
 
 

@@ -1,3 +1,4 @@
+import { WineComponent } from './wine.component';
 import { WineService } from './wine.service';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
@@ -8,6 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
+    WineComponent,
     routableComponents
   ],
   imports: [

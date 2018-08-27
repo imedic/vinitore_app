@@ -1,0 +1,65 @@
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+
+    &--cards {
+        display: block;
+        width: 100%;
+
+        thead {
+            display: none;
+        }
+
+        tbody {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .data-table__row {
+            display: block;
+            min-width: 240px;
+            padding: 20px;
+            border-radius: 2px;
+            box-shadow: $box-shadow-default;
+            margin: 20px;
+            background-color: white;
+
+            &:nth-of-type(even) {
+                background-color: white;
+            }
+        }
+
+        .data-table__col {
+            display: block;
+        }
+
+        .data-table__identifier {
+            font-size: 14px;
+            font-weight: 600;
+            color: $gray-3;
+            margin-right: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .data-table__main {
+            font-size: 24px;
+        }
+    }
+}
+
+.data-table__row {
+    &:nth-of-type(even) {
+        background-color: $gray-5;
+    }
+}
+
+.data-table__col {
+    text-align: left;
+    padding: 20px 20px;
+
+    &.data-table__col--header {
+        border-bottom: $border-default;
+    }
+}

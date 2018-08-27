@@ -3,7 +3,6 @@ import { WineUpsertComponent } from './upsert/wine-upsert.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, Route } from '@angular/router';
 import { WineDetailComponent } from './detail/wine-detail.component';
-import { WineComponent } from './wine.component';
 
 export const wineRoutes: Route = {
   path: '',
@@ -11,7 +10,7 @@ export const wineRoutes: Route = {
     {
       path: '',
       component: WineListComponent
-    }
+    },
     {
       path: 'create',
       component: WineUpsertComponent
@@ -40,7 +39,6 @@ export const wineRoutes: Route = {
 export class WineRoutingModule { }
 
 export const routableComponents = [
-  WineComponent,
   WineUpsertComponent,
   WineDetailComponent,
   WineListComponent

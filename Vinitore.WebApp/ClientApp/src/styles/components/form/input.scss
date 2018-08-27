@@ -1,0 +1,15 @@
+input {
+    @include input-default();
+}
+
+.input {
+    @include input-default();
+
+    &.input--full-width {
+        width: 100%;
+    }
+
+    &.input--rounded {
+        border-radius: 40px;
+    }
+}

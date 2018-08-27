@@ -1,2 +1,54 @@
 
 <h1>Wines</h1>
+
+<div class="input-group">
+    <div class="input-group__addon input-group__addon--prepend mod-margin-right-15">
+        <button class="btn btn--icon btn--icon-rounded btn--primary"
+                [routerLink]='["/wines/create"]'>
+            <i class="fa fa-plus"></i>
+        </button>
+    </div>
+    <input class="input input--rounded input--full-width" placeholder="Filter wines" type="text">
+    <div class="input-group__addon input-group__addon--append mod-margin-left-15">
+        <div class="btn-group">
+            <button class="btn" 
+                    (click)="tableView = 'list'"
+                    [ngClass]="tableView === 'list' ? 'btn--primary' : 'btn--outline'">
+                <i class="fas fa-bars"></i>
+            </button>
+            <button class="btn" 
+                    (click)="tableView = 'card'"
+                    [ngClass]="tableView === 'card' ? 'btn--primary' : 'btn--outline'">
+                <i class="fas fa-th-large"></i>
+            </button>
+        </div>
+    </div>
+</div>
+<table class="data-table mod-margin-top-20" [ngClass]="{'data-table--cards': tableView === 'card'}">
+    <thead>
+        <tr class="data-table__row">
+            <th class="data-table__col data-table__col--header">Name</th>
+            <th class="data-table__col data-table__col--header">Type</th>
+            <th class="data-table__col data-table__col--header">Year</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let wine of wines" class="data-table__row">
+            <td class="data-table__col">
+                <strong class="data-table__main">
+                    {{ wine.name }}
+                </strong>
+            </td>
+            <td class="data-table__col">
+                <span *ngIf="tableView === 'card'"
+                      class="data-table__identifier">Type: </span>
+                {{ wine.type }}
+            </td>
+            <td class="data-table__col">
+                <span *ngIf="tableView === 'card'"
+                      class="data-table__identifier">Year: </span>
+                {{ wine.year }}
+            </td>
+        </tr>
+    </tbody>
+</table>
