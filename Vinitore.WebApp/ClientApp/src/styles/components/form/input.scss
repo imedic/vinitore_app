@@ -6,6 +6,7 @@ input {
     @include input-default();
 
     &.input--full-width {
+        display: block;
         width: 100%;
     }
 

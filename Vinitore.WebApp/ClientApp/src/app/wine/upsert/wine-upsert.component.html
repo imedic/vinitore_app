@@ -1,2 +1,31 @@
+<div class="wine-upsert">
+  <h1>Add new wine</h1>
 
-<h1>Add new wine</h1>
+  <div class="card">
+    <form [formGroup]="form">
+      <div class="mod-display-flex">
+        <div class="form-control wine-upsert__wine-input">
+          <label class="form-control__label">Wine name</label>
+          <input class="input input--full-width" type="text" formControlName="name"/>
+        </div>
+
+        <div class="form-control mod-margin-left-30">
+          <label class="form-control__label">Year</label>
+          <input class="input" type="number" formControlName="year" />
+        </div>
+      </div>
+
+      <label *ngFor="let option of wineTypeOptions" class="radio">
+        <input class="radio__input" formControlName="wineType" [value]="option.value" type="radio" />
+        <div class="radio__replacement"></div>
+        <div class="radio__label">
+          {{option.label}}
+        </div>
+      </label>
+    </form>
+
+    <button class="btn btn--primary"
+            (click)="submit()"
+            [disabled]="isButtonDisabled">Save</button>
+  </div>
+</div>

@@ -6,18 +6,21 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { WineRoutingModule, routableComponents } from './wine-routing-module';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     WineComponent,
-    routableComponents
+    routableComponents,
   ],
   imports: [
     HttpModule,
     HttpClientModule,
     CommonModule,
     RouterModule,
-    WineRoutingModule
+    WineRoutingModule,
+    FormsModule, 
+    ReactiveFormsModule,
   ],
   providers:[
     WineService

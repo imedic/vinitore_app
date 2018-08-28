@@ -1,0 +1,10 @@
+.form-control {
+    display: block;
+    margin-bottom: 30px;
+
+    &__label {
+        display: block;
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
+}

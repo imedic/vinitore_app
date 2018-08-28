@@ -3,3 +3,7 @@ body {
     font-family: $font-family-base;
     color: $gray-2;
 }
+
+* {
+    box-sizing: border-box;
+}
