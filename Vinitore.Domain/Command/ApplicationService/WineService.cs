@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Vinitore.Domain.Command.ApplicationService.Contracts;
+﻿using Vinitore.Domain.Command.ApplicationService.Contracts;
 using Vinitore.Domain.Command.Commands;
-using Vinitore.Domain.Command.DomainModels.Wine;
+using Vinitore.Domain.Command.DomainModels.WineManagment;
 using Vinitore.Domain.Command.InfrastructureContracts;
 
 namespace Vinitore.Domain.Command.ApplicationService
@@ -19,9 +16,10 @@ namespace Vinitore.Domain.Command.ApplicationService
             _repository = repository;
         }
 
-        public void AddWine(Wine command)
+        public void AddWine(WineCommand command)
         {
-            _repository.AddWine(command);
+            var wine = new Wine(command);
+            _repository.AddWine(wine);
         }
     }
 }

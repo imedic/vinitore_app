@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Vinitore.Domain.AggregatesModel.BarrelAggregate
+namespace Vinitore.Domain.Command.DomainModels.BarrelManagment
 {
     public enum BarrelType
     {

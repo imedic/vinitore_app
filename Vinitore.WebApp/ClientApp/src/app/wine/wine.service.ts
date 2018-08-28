@@ -21,23 +21,23 @@ export class WineService {
     return this.http.get<Wine[]>(this.wineUrl);
   }
 
-  getWine(id: number): Observable<Wine> {
-    const url = `${this.wineUrl}/?id=${id}`;
+  // getWine(id: number): Observable<Wine> {
+  //   const url = `${this.wineUrl}/?id=${id}`;
 
-    return this.http.get<Wine>(url);
-  }
+  //   return this.http.get<Wine>(url);
+  // }
 
 
   addWine (wine: Wine): Observable<Wine> {
     return this.http.post<Wine>(this.wineUrl, wine, httpOptions);
   }
 
-  deleteWine (wine: Wine | number): Observable<Wine> {
-    const id = typeof wine === 'number' ? wine : wine.id;
-    const url = `${this.wineUrl}/${id}`;
+  // deleteWine (wine: Wine | number): Observable<Wine> {
+  //   const id = typeof wine === 'number' ? wine : wine.id;
+  //   const url = `${this.wineUrl}/${id}`;
 
-    return this.http.delete<Wine>(url, httpOptions);
-  }
+  //   return this.http.delete<Wine>(url, httpOptions);
+  // }
 
   updateWine (wine: Wine): Observable<any> {
     return this.http.put(this.wineUrl, wine, httpOptions);

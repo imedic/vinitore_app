@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Vinitore.Domain.Command.DomainModels.Barrel;
-using Vinitore.Domain.Command.DomainModels.Wine;
+using Vinitore.Domain.Command.Commands;
+using Vinitore.Domain.Command.DomainModels.BarrelManagment;
+using Vinitore.Domain.Command.DomainModels.WineManagment;
 using Vinitore.Infrastructure.DbModel;
 
 namespace Vinitore.Infrastructure.EntityMappers

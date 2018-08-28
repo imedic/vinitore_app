@@ -1,12 +1,9 @@
 ﻿using AutoMapper;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using Vinitore.Domain.Command.DomainModels.Wine;
+using Vinitore.Domain.Command.Commands;
+using Vinitore.Domain.Command.DomainModels.WineManagment;
 using Vinitore.Domain.Command.InfrastructureContracts;
 using Vinitore.Infrastructure.DbModel;
 using Vinitore.Infrastructure.DbModel.Context;
-using Vinitore.Infrastructure.Query;
 
 namespace Vinitore.Infrastructure.Repositories
 {

@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Vinitore.Domain.Command.Commands
+namespace Vinitore.Domain.Command.DomainModels.BarrelManagment
 {
-    public class AddWineCommand
+    public class Barrel
     {
         public string Name { get; set; }
     }

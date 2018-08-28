@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Vinitore.Domain.Command.DomainModels.Wine;
+﻿using Vinitore.Domain.Command.Commands;
+using Vinitore.Domain.Command.DomainModels.WineManagment;
 
 namespace Vinitore.Domain.Command.InfrastructureContracts
 {

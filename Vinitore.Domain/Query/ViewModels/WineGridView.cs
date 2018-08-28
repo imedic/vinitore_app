@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Vinitore.Domain.Enums;
+using Vinitore.Domain.Command.DomainModels.WineManagment;
 
 namespace Vinitore.Domain.Query.Views
 {

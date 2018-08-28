@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
-namespace Vinitore.Infrastructure.Migrations.Vinitore
+namespace Vinitore.Infrastructure.Migrations
 {
-    public partial class init : Migration
+    public partial class InitialDb : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -17,7 +17,9 @@ namespace Vinitore.Infrastructure.Migrations.Vinitore
                 {
                     wine_id = table.Column<int>(nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
-                    name = table.Column<string>(nullable: true)
+                    name = table.Column<string>(nullable: true),
+                    type = table.Column<int>(nullable: false),
+                    year = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {

@@ -19,7 +19,9 @@ namespace Vinitore.Infrastructure.Queries
 
         public IQueryable<WineGridViewModel> GetWines()
         {
-            throw new Exception("Reka sam ne može");
+            //throw new Exception("Reka sam ne može");
+
+            return null;
         }
     }
 }

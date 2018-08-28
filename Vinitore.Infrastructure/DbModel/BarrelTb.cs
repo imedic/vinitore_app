@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
-using Vinitore.Domain.AggregatesModel.BarrelAggregate;
+using Vinitore.Domain.Command.DomainModels.BarrelManagment;
 
 namespace Vinitore.Infrastructure.DbModel
 {

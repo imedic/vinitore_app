@@ -7,7 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 using Vinitore.Domain.Command.ApplicationService.Contracts;
 using Vinitore.Query;
 using Vinitore.Query.Queries;
-using Vinitore.Domain.Command.DomainModels.Wine;
+using Vinitore.Domain.Command.DomainModels.WineManagment;
+using Vinitore.Domain.Command.Commands;
 
 namespace Vinitore.WebApp.Controllers
 {
@@ -30,8 +31,10 @@ namespace Vinitore.WebApp.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            var test = _wineQuery.GetWines();
-            return Ok(test.ToArray());
+            //var test = _wineQuery.GetWines();
+            //return Ok(test.ToArray());
+
+            return Ok("Evo ti vina");
         }
 
         [HttpGet("{id}", Name = "GetWine")]
@@ -41,14 +44,11 @@ namespace Vinitore.WebApp.Controllers
         }
 
         [HttpPost]
-        public void Post()
+        public IActionResult Post([FromBody] WineCommand command)
         {
-            var command = new Wine
-            {
-                Name = "A brave new world"
-            };
-
             _wineService.AddWine(command);
+
+            return Ok("Saved!");
         }
 
         [HttpPut("{id}")]
