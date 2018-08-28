@@ -8,18 +8,7 @@ import { Wine } from './wine';
 })
 
 export class WineComponent implements OnInit {
-    constructor(
-        private wineService: WineService
-    ) {
-        let wine:Wine = {
-            name: "prvoklasno vino",
-            year: 2018,
-            type: 1
-        }
-        // wineService.addWine(wine).subscribe(result => {
-        //     console.log(result);
-        // })
-     }
+    constructor() { }
 
     ngOnInit() { }
 }

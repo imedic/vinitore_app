@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { WineService } from '../wine.service';
+import { WineType } from '../wine';
 
 @Component({
     selector: 'wine-list',
@@ -6,16 +8,30 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class WineListComponent implements OnInit {
-    wines = [
-        {name: "Žilavka", year: 2015, type: "Suho vino"},
-        {name: "Žilavka", year: 2013, type: "Polu suho vino"},
-        {name: "Blatina", year: 2017, type: "Suho vino"},
-        {name: "Prošek", year: 2016, type: "Slatko vino"}
-    ];
+    wines = [];
 
     tableView = "list";
     
-    constructor() { }
+    constructor(private wineService: WineService) {
+        wineService.getWines().subscribe(result => {
+            this.wines = result;
+        })
+     }
+
+     mapWineTypeEnumToString(type: WineType) {
+        switch (type) {
+            case WineType.Dry:
+                return "Dry";
+            case WineType.MediumDry:
+                return "Medium Dry";
+            case WineType.MediumSweet:
+                return "Medium Sweet";
+            case WineType.Sweet:
+                return "Sweet";
+            default:
+                return "N/A";
+        }
+     }
 
     ngOnInit() { }
 }

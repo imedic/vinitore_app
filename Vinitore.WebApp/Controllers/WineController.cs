@@ -31,10 +31,9 @@ namespace Vinitore.WebApp.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            //var test = _wineQuery.GetWines();
-            //return Ok(test.ToArray());
+            var wines = _wineQuery.GetWines();
 
-            return Ok("Evo ti vina");
+            return Ok(wines.ToArray());
         }
 
         [HttpGet("{id}", Name = "GetWine")]
@@ -48,7 +47,7 @@ namespace Vinitore.WebApp.Controllers
         {
             _wineService.AddWine(command);
 
-            return Ok("Saved!");
+            return Ok();
         }
 
         [HttpPut("{id}")]

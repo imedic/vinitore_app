@@ -4,6 +4,7 @@ using System.Text;
 using Vinitore.Domain.Command.Commands;
 using Vinitore.Domain.Command.DomainModels.BarrelManagment;
 using Vinitore.Domain.Command.DomainModels.WineManagment;
+using Vinitore.Domain.Query.Views;
 using Vinitore.Infrastructure.DbModel;
 
 namespace Vinitore.Infrastructure.EntityMappers
@@ -15,6 +16,7 @@ namespace Vinitore.Infrastructure.EntityMappers
             AutoMapper.Mapper.Initialize(cfg =>
             {
                 cfg.CreateMap<WineTb, Wine>();
+                cfg.CreateMap<WineTb, WineGridViewModel>();
                 cfg.CreateMap<BarrelTb, Barrel>();
 
                 cfg.CreateMap<Wine, WineTb>();

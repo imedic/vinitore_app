@@ -24,31 +24,33 @@
         </div>
     </div>
 </div>
-<table class="data-table mod-margin-top-20" [ngClass]="{'data-table--cards': tableView === 'card'}">
-    <thead>
-        <tr class="data-table__row">
-            <th class="data-table__col data-table__col--header">Name</th>
-            <th class="data-table__col data-table__col--header">Type</th>
-            <th class="data-table__col data-table__col--header">Year</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let wine of wines" class="data-table__row">
-            <td class="data-table__col">
-                <strong class="data-table__main">
-                    {{ wine.name }}
-                </strong>
-            </td>
-            <td class="data-table__col">
-                <span *ngIf="tableView === 'card'"
-                      class="data-table__identifier">Type: </span>
-                {{ wine.type }}
-            </td>
-            <td class="data-table__col">
-                <span *ngIf="tableView === 'card'"
-                      class="data-table__identifier">Year: </span>
-                {{ wine.year }}
-            </td>
-        </tr>
-    </tbody>
-</table>
+<div class="data-table-scroll-container">
+    <table class="data-table mod-margin-top-20 mod-margin-bottom-40" [ngClass]="{'data-table--cards': tableView === 'card'}">
+        <thead>
+            <tr class="data-table__row">
+                <th class="data-table__col data-table__col--header">Name</th>
+                <th class="data-table__col data-table__col--header">Type</th>
+                <th class="data-table__col data-table__col--header">Year</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let wine of wines" class="data-table__row">
+                <td class="data-table__col">
+                    <strong class="data-table__main">
+                        {{ wine.name }}
+                    </strong>
+                </td>
+                <td class="data-table__col">
+                    <span *ngIf="tableView === 'card'"
+                          class="data-table__identifier">Type: </span>
+                    {{ mapWineTypeEnumToString(wine.type) }}
+                </td>
+                <td class="data-table__col">
+                    <span *ngIf="tableView === 'card'"
+                          class="data-table__identifier">Year: </span>
+                    {{ wine.year }}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

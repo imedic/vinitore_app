@@ -5,6 +5,7 @@ using System.Text;
 using Vinitore.Infrastructure.Query;
 using Vinitore.Domain.Query.Views;
 using Vinitore.Query.Queries;
+using AutoMapper.QueryableExtensions;
 
 namespace Vinitore.Infrastructure.Queries
 {
@@ -19,9 +20,9 @@ namespace Vinitore.Infrastructure.Queries
 
         public IQueryable<WineGridViewModel> GetWines()
         {
-            //throw new Exception("Reka sam ne može");
+            var query = _queryContext.Wines.ProjectTo<WineGridViewModel>();
 
-            return null;
+            return query;
         }
     }
 }

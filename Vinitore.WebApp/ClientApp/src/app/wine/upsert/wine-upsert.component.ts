@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { WineType, Wine } from '../wine';
 import { FormGroup, FormBuilder } from '@angular/forms';
-import { RadioOption } from '../../common/radio-group/radio-group.component';
 import { WineService } from '../wine.service';
+import { Router, ActivatedRoute } from '@angular/router';
+
 
 @Component({
     selector: 'wine-upsert',
@@ -23,7 +24,10 @@ export class WineUpsertComponent implements OnInit {
     
     constructor(
         private fb: FormBuilder,
-        private wineService: WineService) {
+        private wineService: WineService,
+        private route: ActivatedRoute,
+        private router: Router,
+    ) {
         this.form = this.fb.group({
             name: "",
             year: null,
@@ -40,8 +44,10 @@ export class WineUpsertComponent implements OnInit {
             type: this.form.value.wineType
         }
         this.wineService.addWine(wine).subscribe(result => {
-            console.log(result);
-        })
+            this.router.navigate(['../'], {
+                relativeTo: this.route
+            });
+        });
     }
         
     ngOnInit() {
