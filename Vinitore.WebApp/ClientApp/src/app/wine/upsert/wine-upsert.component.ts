@@ -14,6 +14,9 @@ export class WineUpsertComponent implements OnInit {
     form: FormGroup;
     WineType = WineType;
     isButtonDisabled = false;
+    isEditMode = false;
+    wineId;
+    wine = null;
     
     wineTypeOptions = [
         {value: WineType.Dry, label: "Dry"},
@@ -33,6 +36,38 @@ export class WineUpsertComponent implements OnInit {
             year: null,
             wineType: 0
         });
+
+        this.route.params.subscribe(params => {
+            this.isEditMode = !!params.wineId;
+            this.wineId = this.isEditMode ? params.wineId : null;
+      
+            if (this.isEditMode) {
+                this.getDataAndPopulateForm();
+            }
+            else {
+                this.createEmptyForm();
+            }
+          });
+    }
+
+    createEmptyForm() {
+        this.form = this.fb.group({
+            name: "",
+            year: null,
+            wineType: 0
+        });
+    }
+
+    getDataAndPopulateForm() {
+        this.wineService.getWine(this.wineId).subscribe(result => {
+            this.wine = result;
+
+            this.form = this.fb.group({
+                name: this.wine.name,
+                year: this.wine.year,
+                wineType: this.wine.type
+            });
+        })
     }
 
     submit() {
@@ -42,12 +77,24 @@ export class WineUpsertComponent implements OnInit {
             name: this.form.value.name,
             year: this.form.value.year,
             type: this.form.value.wineType
+        };
+
+        if (this.isEditMode) {
+            const wineUpdated = Object.assign({}, this.wine, wine);
+
+            this.wineService.updateWine(this.wineId, wineUpdated).subscribe(result => {
+                this.router.navigate(['../'], {
+                    relativeTo: this.route
+                });
+            })
         }
-        this.wineService.addWine(wine).subscribe(result => {
-            this.router.navigate(['../'], {
-                relativeTo: this.route
+        else {
+            this.wineService.addWine(wine).subscribe(result => {
+                this.router.navigate(['../'], {
+                    relativeTo: this.route
+                });
             });
-        });
+        }
     }
         
     ngOnInit() {

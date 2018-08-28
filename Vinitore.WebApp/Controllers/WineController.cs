@@ -53,13 +53,19 @@ namespace Vinitore.WebApp.Controllers
         }
 
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public IActionResult Put(int id, [FromBody] WineCommand command)
         {
+            _wineService.UpdateWine(id, command);
+
+            return Ok();
         }
 
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public IActionResult Delete(int id)
         {
+            _wineService.DeleteWine(id);
+
+            return Ok();
         }
     }
 }

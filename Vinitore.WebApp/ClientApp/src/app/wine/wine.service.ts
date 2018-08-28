@@ -31,14 +31,13 @@ export class WineService {
     return this.http.post<Wine>(this.wineUrl, wine, httpOptions);
   }
 
-  // deleteWine (wine: Wine | number): Observable<Wine> {
-  //   const id = typeof wine === 'number' ? wine : wine.id;
-  //   const url = `${this.wineUrl}/${id}`;
+  deleteWine (id: number): Observable<any> {
+    const url = `${this.wineUrl}/${id}`;
 
-  //   return this.http.delete<Wine>(url, httpOptions);
-  // }
+    return this.http.delete(url, httpOptions);
+  }
 
-  updateWine (wine: Wine): Observable<any> {
-    return this.http.put(this.wineUrl, wine, httpOptions);
+  updateWine (id: number, wine: Wine): Observable<any> {
+    return this.http.put(`${this.wineUrl}/${id}`, wine, httpOptions);
   }
 }

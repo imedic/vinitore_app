@@ -27,6 +27,11 @@ namespace Vinitore.Domain.Command.DomainModels.WineManagment
             SetProperties(command);
         }
 
+        public void Update(WineCommand command)
+        {
+            SetProperties(command);
+        }
+
         private void SetProperties(WineCommand command)
         {
             if (string.IsNullOrEmpty(command.Name))

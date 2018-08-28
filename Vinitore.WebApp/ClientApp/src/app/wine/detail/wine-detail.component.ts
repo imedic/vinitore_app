@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { WineDetails } from '../wine';
 import { WineService } from '../wine.service';
 
@@ -11,9 +11,11 @@ import { WineService } from '../wine.service';
 export class WineDetailComponent implements OnInit {
     wineId: number;
     wine: WineDetails;
+    isLoading = true;
 
     constructor(
         private route: ActivatedRoute,
+        private router: Router,
         private wineService: WineService) {
         this.route.params.subscribe(params => {
             this.wineId = params.wineId;
@@ -26,8 +28,14 @@ export class WineDetailComponent implements OnInit {
 
     fetchWine() {
         this.wineService.getWine(this.wineId).subscribe(result => {
-            console.log(result);
             this.wine = result;
+            this.isLoading = false;
+        })
+    }
+
+    deleteWine() {
+        this.wineService.deleteWine(this.wineId).subscribe(result => {
+            this.router.navigate(['/wines']);
         })
     }
 }

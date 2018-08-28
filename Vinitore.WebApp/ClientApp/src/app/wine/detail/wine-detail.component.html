@@ -1,1 +1,59 @@
 <h1>Wine detail</h1>
+
+<div class="card" *ngIf="!isLoading">
+    <div class="mod-display-flex mod-align-center">
+        <div class="mod-flex-grow">
+            <h2 class="mod-margin-top-none">{{ wine.name }}</h2>
+            <div class="mod-margin-top-10">
+                <span class="subtitle subtitle--uppercased">Year:</span> {{ wine.year }}
+            </div>
+            <div class="mod-margin-top-5">
+                <span class="subtitle subtitle--uppercased">Type:</span> {{ wine.type }}
+            </div>
+        </div>
+        <div class="text-right">
+            <button class="btn btn--danger mod-margin-right-10" (click)="deleteWine()">
+                <i class="far fa-trash-alt mod-margin-right-5"></i>
+                Delete
+            </button>
+            <button class="btn btn--primary" routerLink="edit">
+                <i class="far fa-edit mod-margin-right-5"></i>
+                Edit
+            </button>
+        </div>
+    </div>
+    <div class="mod-margin-top-40">
+        <h3 class="mod-margin-bottom-5">Barrels</h3>
+        <div class="data-table-scroll-container">
+            <table class="data-table">
+                <thead>
+                    <tr class="data-table__row">
+                        <th class="data-table__col data-table__col--header">Name</th>
+                        <th class="data-table__col data-table__col--header">Capacity</th>
+                        <th class="data-table__col data-table__col--header">Amount</th>
+                    </tr>
+                </thead>
+                <tbody *ngIf="wine.barrels.length > 0">
+                    <tr *ngFor="let barrel of wine.barrels" class="data-table__row">
+                        <td class="data-table__col">
+                            <a class="link link--blue" routerLink="{{wine.id}}">
+                                <strong class="data-table__main">
+                                    {{ wine.name }}
+                                </strong>
+                            </a>
+                        </td>
+                        <td class="data-table__col">
+                            {{ mapWineTypeEnumToString(wine.type) }}
+                        </td>
+                        <td class="data-table__col">
+                            {{ wine.year }}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="text-center mod-padding-30" *ngIf="wine.barrels.length === 0">
+                <i>Wine is not in any barrel</i>
+            </div>
+        </div>
+    </div>
+</div>

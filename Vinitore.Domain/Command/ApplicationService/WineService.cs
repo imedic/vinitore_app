@@ -21,5 +21,19 @@ namespace Vinitore.Domain.Command.ApplicationService
             var wine = new Wine(command);
             _repository.AddWine(wine);
         }
+
+        public void UpdateWine(int id, WineCommand command)
+        {
+            var wine = _repository.GetById(id);
+
+            wine.Update(command);
+
+            _repository.UpdateWine(id, wine);
+        }
+
+        public void DeleteWine(int id)
+        {
+            _repository.DeleteWine(id);
+        }
     }
 }
