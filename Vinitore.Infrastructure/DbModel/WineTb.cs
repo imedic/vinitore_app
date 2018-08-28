@@ -7,7 +7,7 @@ using System.Text;
 namespace Vinitore.Infrastructure.DbModel
 {
     [Table("wine", Schema="public")]
-    class WineTb
+    public class WineTb
     {
         [Column("wine_id")]
         [Key]

@@ -7,7 +7,7 @@ using Vinitore.Domain.AggregatesModel.BarrelAggregate;
 namespace Vinitore.Infrastructure.DbModel
 {
     [Table("barrel", Schema="public")]
-    class BarrelTb
+    public class BarrelTb
     {
         public int Id { get; set; }
         public string Name { get; set; }

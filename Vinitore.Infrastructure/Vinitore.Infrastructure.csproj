@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="7.0.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="2.2.0-preview1-35029" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.2.0-preview1-35029">
       <PrivateAssets>all</PrivateAssets>

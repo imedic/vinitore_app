@@ -3,12 +3,12 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
-using Vinitore.Infrastructure.DbModel.Context;
+using Vinitore.Infrastructure;
 
-namespace Vinitore.Infrastructure.Migrations
+namespace Vinitore.Infrastructure.Migrations.Vinitore
 {
-    [DbContext(typeof(ApplicationContext))]
-    partial class ApplicationContextModelSnapshot : ModelSnapshot
+    [DbContext(typeof(VinitoreContext))]
+    partial class VinitoreContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Vinitore.Domain.Command.DomainModels.Barrel
 {
-    class Barrel
+    public class Barrel
     {
     }
 }

@@ -10,12 +10,12 @@ namespace Vinitore.Infrastructure.Queries
 {
     public class WineQuery : IWineQuery
     {
-        //private readonly QueryContext _queryContext;
+        private readonly QueryContext _queryContext;
 
-        //public WineQuery(QueryContext queryContext)
-        //{
-        //    _queryContext = queryContext;
-        //}
+        public WineQuery(QueryContext queryContext)
+        {
+            _queryContext = queryContext;
+        }
 
         public IQueryable<WineGridViewModel> GetWines()
         {

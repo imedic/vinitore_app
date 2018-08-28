@@ -1,14 +1,31 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
-namespace Vinitore.Infrastructure.Migrations
+namespace Vinitore.Infrastructure.Migrations.Vinitore
 {
-    public partial class BarrelAdded : Migration
+    public partial class init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.EnsureSchema(
+                name: "public");
+
             migrationBuilder.CreateTable(
-                name: "Barrel",
+                name: "wine",
+                schema: "public",
+                columns: table => new
+                {
+                    wine_id = table.Column<int>(nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
+                    name = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_wine", x => x.wine_id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "barrel",
                 schema: "public",
                 columns: table => new
                 {
@@ -22,9 +39,9 @@ namespace Vinitore.Infrastructure.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Barrel", x => x.Id);
+                    table.PrimaryKey("PK_barrel", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Barrel_wine_WineId",
+                        name: "FK_barrel_wine_WineId",
                         column: x => x.WineId,
                         principalSchema: "public",
                         principalTable: "wine",
@@ -33,16 +50,20 @@ namespace Vinitore.Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Barrel_WineId",
+                name: "IX_barrel_WineId",
                 schema: "public",
-                table: "Barrel",
+                table: "barrel",
                 column: "WineId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Barrel",
+                name: "barrel",
+                schema: "public");
+
+            migrationBuilder.DropTable(
+                name: "wine",
                 schema: "public");
         }
     }

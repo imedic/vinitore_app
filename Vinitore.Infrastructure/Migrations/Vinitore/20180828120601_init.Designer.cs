@@ -4,13 +4,13 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
-using Vinitore.Infrastructure.DbModel.Context;
+using Vinitore.Infrastructure;
 
-namespace Vinitore.Infrastructure.Migrations
+namespace Vinitore.Infrastructure.Migrations.Vinitore
 {
-    [DbContext(typeof(ApplicationContext))]
-    [Migration("20180827194846_BarrelTableRenamed")]
-    partial class BarrelTableRenamed
+    [DbContext(typeof(VinitoreContext))]
+    [Migration("20180828120601_init")]
+    partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
