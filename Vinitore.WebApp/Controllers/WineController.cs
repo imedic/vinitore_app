@@ -37,9 +37,11 @@ namespace Vinitore.WebApp.Controllers
         }
 
         [HttpGet("{id}", Name = "GetWine")]
-        public string Get(int id)
+        public IActionResult Get(int id)
         {
-            return "value";
+            var wine = _wineQuery.GetWine(id);
+
+            return Ok(wine.FirstOrDefault());
         }
 
         [HttpPost]

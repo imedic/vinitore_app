@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Observable } from 'rxjs';
-import { Wine } from './wine';
+import { Wine, WineDetails } from './wine';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -21,11 +21,10 @@ export class WineService {
     return this.http.get<Wine[]>(this.wineUrl);
   }
 
-  // getWine(id: number): Observable<Wine> {
-  //   const url = `${this.wineUrl}/?id=${id}`;
-
-  //   return this.http.get<Wine>(url);
-  // }
+  getWine(id: number): Observable<WineDetails> {
+    const url = `${this.wineUrl}/${id}`;
+    return this.http.get<WineDetails>(url);
+  }
 
 
   addWine (wine: Wine): Observable<Wine> {

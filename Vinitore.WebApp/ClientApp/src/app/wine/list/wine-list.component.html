@@ -36,9 +36,11 @@
         <tbody>
             <tr *ngFor="let wine of wines" class="data-table__row">
                 <td class="data-table__col">
-                    <strong class="data-table__main">
-                        {{ wine.name }}
-                    </strong>
+                    <a class="link link--blue" routerLink="{{wine.id}}">
+                        <strong class="data-table__main">
+                            {{ wine.name }}
+                        </strong>
+                    </a>
                 </td>
                 <td class="data-table__col">
                     <span *ngIf="tableView === 'card'"

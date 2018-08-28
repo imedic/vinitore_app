@@ -6,6 +6,7 @@ using Vinitore.Infrastructure.Query;
 using Vinitore.Domain.Query.Views;
 using Vinitore.Query.Queries;
 using AutoMapper.QueryableExtensions;
+using Vinitore.Domain.Query.ViewModels;
 
 namespace Vinitore.Infrastructure.Queries
 {
@@ -21,6 +22,13 @@ namespace Vinitore.Infrastructure.Queries
         public IQueryable<WineGridViewModel> GetWines()
         {
             var query = _queryContext.Wines.ProjectTo<WineGridViewModel>();
+
+            return query;
+        }
+
+        public IQueryable<WineDetailsViewModel> GetWine(int id)
+        {
+            var query = _queryContext.Wines.Where(x => x.Id == id).ProjectTo<WineDetailsViewModel>();
 
             return query;
         }

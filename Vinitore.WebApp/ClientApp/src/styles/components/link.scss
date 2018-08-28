@@ -1,3 +1,7 @@
 .link {
     @include reset-link();
+
+    &--blue {
+        @include reset-link($blue-2);
+    }
 }

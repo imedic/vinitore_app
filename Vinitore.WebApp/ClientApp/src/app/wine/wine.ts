@@ -4,6 +4,12 @@ export interface Wine {
     type: WineType;
 }
 
+export interface WineDetails {
+    id: number;
+    name: string;
+    type: WineType;
+}
+
 export enum WineType {
     Dry = 0,
     MediumDry,
