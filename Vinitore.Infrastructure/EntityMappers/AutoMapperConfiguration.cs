@@ -19,7 +19,9 @@ namespace Vinitore.Infrastructure.EntityMappers
                 cfg.CreateMap<WineTb, Wine>();
                 cfg.CreateMap<WineTb, WineGridViewModel>();
                 cfg.CreateMap<WineTb, WineDetailsViewModel>();
+                cfg.CreateMap<WineTb, WineSummaryView>();
                 cfg.CreateMap<BarrelTb, Barrel>();
+                cfg.CreateMap<BarrelTb, BarrelView>();
 
                 cfg.CreateMap<Wine, WineTb>();
                 cfg.CreateMap<Barrel, BarrelTb>();

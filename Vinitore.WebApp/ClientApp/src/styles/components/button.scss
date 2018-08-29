@@ -46,6 +46,10 @@
     &--icon-rounded {
         border-radius: 50%;
     }
+
+    &--link {
+        @include button-link-variant($gray-2, $gray-1);
+    }
 }
 
 .btn-group {

@@ -12,6 +12,6 @@ namespace Vinitore.Domain.Query.ViewModels
         public string Name { get; set; }
         public int Year { get; set; }
         public WineType Type { get; set; }
-        public ICollection<Barrel> Barrels { get; set; }
+        public ICollection<BarrelView> Barrels { get; set; }
     }
 }

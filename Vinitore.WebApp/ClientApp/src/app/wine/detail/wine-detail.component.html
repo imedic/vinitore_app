@@ -8,11 +8,11 @@
                 <span class="subtitle subtitle--uppercased">Year:</span> {{ wine.year }}
             </div>
             <div class="mod-margin-top-5">
-                <span class="subtitle subtitle--uppercased">Type:</span> {{ wine.type }}
+                <span class="subtitle subtitle--uppercased">Type:</span> {{ getWineType(wine.type) }}
             </div>
         </div>
         <div class="text-right">
-            <button class="btn btn--danger mod-margin-right-10" (click)="deleteWine()">
+            <button class="btn btn--danger mod-margin-right-10" (click)="openConfirmationModal()">
                 <i class="far fa-trash-alt mod-margin-right-5"></i>
                 Delete
             </button>
@@ -29,24 +29,29 @@
                 <thead>
                     <tr class="data-table__row">
                         <th class="data-table__col data-table__col--header">Name</th>
+                        <th class="data-table__col data-table__col--header">Type</th>
                         <th class="data-table__col data-table__col--header">Capacity</th>
-                        <th class="data-table__col data-table__col--header">Amount</th>
+                        <th class="data-table__col data-table__col--header">Current Capacity</th>
                     </tr>
                 </thead>
                 <tbody *ngIf="wine.barrels.length > 0">
                     <tr *ngFor="let barrel of wine.barrels" class="data-table__row">
                         <td class="data-table__col">
-                            <a class="link link--blue" routerLink="{{wine.id}}">
+                            <a class="link link--blue" routerLink="/barrels/{{barrel.id}}">
                                 <strong class="data-table__main">
-                                    {{ wine.name }}
+                                    {{ barrel.name }}
                                 </strong>
                             </a>
                         </td>
                         <td class="data-table__col">
-                            {{ mapWineTypeEnumToString(wine.type) }}
+                            {{ barrel.type }}
+                            <!-- {{ mapWineTypeEnumToString(wine.type) }} -->
                         </td>
                         <td class="data-table__col">
-                            {{ wine.year }}
+                            {{ barrel.capacity }}
+                        </td>
+                        <td class="data-table__col">
+                            {{ barrel.currentCapacity }}
                         </td>
                     </tr>
                 </tbody>
@@ -57,3 +62,15 @@
         </div>
     </div>
 </div>
+
+<ngx-smart-modal #myModal identifier="myModal">
+    <div class="text-center">
+        <h1>Delete Wine</h1>
+        <p>Deleting this can't be undone</p>
+        <div class="mod-margin-top-30">
+            <button class="btn btn--link mod-margin-right-10" (click)="myModal.close()">Cancel</button>
+            <button class="btn btn--danger"  (click)="deleteWine()">Delete</button>
+        </div>
+    </div>
+
+</ngx-smart-modal>

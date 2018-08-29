@@ -5,6 +5,9 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
+import { BarrelService } from './barrel.service';
+import { WineService } from '../wine/wine.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,9 +19,13 @@ import { HttpModule } from '@angular/http';
     HttpClientModule,
     CommonModule,
     RouterModule,
-    BarrelRoutingModule
+    BarrelRoutingModule,
+    FormsModule, 
+    ReactiveFormsModule
   ],
   providers:[
+    BarrelService,
+    WineService
   ],
   exports: [
     BarrelRoutingModule

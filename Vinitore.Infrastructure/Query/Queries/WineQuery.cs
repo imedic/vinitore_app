@@ -32,5 +32,12 @@ namespace Vinitore.Infrastructure.Queries
 
             return query;
         }
+
+        public IQueryable<WineSummaryView> GetWineSummaries()
+        {
+            var query = _queryContext.Wines.ProjectTo<WineSummaryView>();
+
+            return query;
+        }
     }
 }

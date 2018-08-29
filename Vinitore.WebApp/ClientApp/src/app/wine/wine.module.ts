@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 import { WineRoutingModule, routableComponents } from './wine-routing-module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgxSmartModalModule } from 'ngx-smart-modal';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     WineRoutingModule,
     FormsModule, 
     ReactiveFormsModule,
+    NgxSmartModalModule.forRoot()
   ],
   providers:[
     WineService

@@ -44,6 +44,14 @@ namespace Vinitore.WebApp.Controllers
             return Ok(wine.FirstOrDefault());
         }
 
+        [HttpGet("summary", Name ="GetWineSummaries")]
+        public IActionResult GetWineSummaries()
+        {
+            var wines = _wineQuery.GetWineSummaries();
+
+            return Ok(wines.ToArray());
+        }
+
         [HttpPost]
         public IActionResult Post([FromBody] WineCommand command)
         {

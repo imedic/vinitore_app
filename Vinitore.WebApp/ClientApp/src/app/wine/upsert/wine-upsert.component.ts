@@ -3,6 +3,7 @@ import { WineType, Wine } from '../wine';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { WineService } from '../wine.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { NgxSmartModalService } from 'ngx-smart-modal';
 
 
 @Component({
@@ -29,7 +30,7 @@ export class WineUpsertComponent implements OnInit {
         private fb: FormBuilder,
         private wineService: WineService,
         private route: ActivatedRoute,
-        private router: Router,
+        private router: Router
     ) {
         this.form = this.fb.group({
             name: "",

@@ -12,5 +12,7 @@ namespace Vinitore.Query.Queries
         IQueryable<WineGridViewModel> GetWines();
 
         IQueryable<WineDetailsViewModel> GetWine(int id);
+
+        IQueryable<WineSummaryView> GetWineSummaries();
     }
 }

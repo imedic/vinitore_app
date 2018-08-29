@@ -65,7 +65,7 @@
 
 .data-table__row {
     &:nth-of-type(even) {
-        background-color: $gray-5;
+        background-color: lighten($gray-5, 7);
     }
 }
 

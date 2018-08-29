@@ -1,3 +1,4 @@
+import { BarrelService } from './../barrel.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,7 +7,21 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class BarrelListComponent implements OnInit {
-    constructor() { }
+    barrels = [];
+
+    tableView = "list";
+
+    constructor(
+        private barrelService: BarrelService
+    ) {
+        barrelService.getBarrels().subscribe(result => {
+            this.barrels = result;
+        })
+     }
+
+     mapBarrelTypeEnumToString(type) {
+        return this.barrelService.mapBarrelTypeFromEnumToText(type);
+     }
 
     ngOnInit() { }
 }

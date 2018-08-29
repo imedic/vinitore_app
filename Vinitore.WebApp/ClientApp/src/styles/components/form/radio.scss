@@ -13,8 +13,8 @@
 
         &:checked {
             & + .radio__replacement {
-                &:before {
-                    display: block;
+                &:after {
+                    background-color: $green-2;
                 }
             }
         }
@@ -22,24 +22,28 @@
 
     &__replacement {
         display: inline-block;
-        width: 18px;
-        height: 18px;
-        border-radius: 50%;
-        background: white;
-        border: 2px solid $gray-4;
         position: relative;
 
         &:before {
             content: '';
-            position: absolute;
-            width: 8px;
-            height: 8px;
+            display: block;
+            width: 18px;
+            height: 18px;
             border-radius: 50%;
-            background-color: $green-2;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            display: none;
+            background-color: white;
+            border: 1px solid $gray-4;
+        }
+
+        &:after {
+            content: '';
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: white;
+            top: 5px;
+            left: 5px;
+            transition: background-color 0.2s ease-out;
         }
     }
 

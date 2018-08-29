@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { WineDetails } from '../wine';
+import { WineDetails, WineType } from '../wine';
 import { WineService } from '../wine.service';
+import { NgxSmartModalService } from 'ngx-smart-modal';
 
 @Component({
     selector: 'wine-detail',
@@ -16,7 +17,9 @@ export class WineDetailComponent implements OnInit {
     constructor(
         private route: ActivatedRoute,
         private router: Router,
-        private wineService: WineService) {
+        private wineService: WineService,
+        private ngxSmartModalService: NgxSmartModalService) {
+
         this.route.params.subscribe(params => {
             this.wineId = params.wineId;
       
@@ -37,5 +40,13 @@ export class WineDetailComponent implements OnInit {
         this.wineService.deleteWine(this.wineId).subscribe(result => {
             this.router.navigate(['/wines']);
         })
+    }
+
+    openConfirmationModal() {
+        this.ngxSmartModalService.getModal('myModal').open()
+    }
+
+    getWineType(type: WineType) {
+        return this.wineService.mapWineTypeFromEnumToText(type);
     }
 }

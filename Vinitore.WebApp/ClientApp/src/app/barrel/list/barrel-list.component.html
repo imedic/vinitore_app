@@ -1,1 +1,69 @@
 <h1>Barrels</h1>
+
+<div class="input-group">
+    <div class="input-group__addon input-group__addon--prepend mod-margin-right-15">
+        <button class="btn btn--icon btn--icon-rounded btn--primary"
+                [routerLink]='["/barrels/create"]'>
+            <i class="fa fa-plus"></i>
+        </button>
+    </div>
+    <input class="input input--rounded input--full-width" placeholder="Filter barrels" type="text">
+    <div class="input-group__addon input-group__addon--append mod-margin-left-15">
+        <div class="btn-group">
+            <button class="btn" 
+                    (click)="tableView = 'list'"
+                    [ngClass]="tableView === 'list' ? 'btn--primary' : 'btn--outline'">
+                <i class="fas fa-bars"></i>
+            </button>
+            <button class="btn" 
+                    (click)="tableView = 'card'"
+                    [ngClass]="tableView === 'card' ? 'btn--primary' : 'btn--outline'">
+                <i class="fas fa-th-large"></i>
+            </button>
+        </div>
+    </div>
+</div>
+<div class="data-table-scroll-container">
+    <table class="data-table mod-margin-top-20 mod-margin-bottom-40" [ngClass]="{'data-table--cards': tableView === 'card'}">
+        <thead>
+            <tr class="data-table__row">
+                <th class="data-table__col data-table__col--header">Name</th>
+                <th class="data-table__col data-table__col--header">Type</th>
+                <th class="data-table__col data-table__col--header">Wine</th>
+                <th class="data-table__col data-table__col--header">Capacity (l)</th>
+                <th class="data-table__col data-table__col--header">Occupied (l)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let barrel of barrels" class="data-table__row">
+                <td class="data-table__col">
+                    <a class="link link--blue" routerLink="{{barrel.id}}">
+                        <strong class="data-table__main">
+                            {{ barrel.name }}
+                        </strong>
+                    </a>
+                </td>
+                <td class="data-table__col">
+                    <span *ngIf="tableView === 'card'"
+                          class="data-table__identifier">Type: </span>
+                    {{ mapBarrelTypeEnumToString(barrel.type) }}
+                </td>
+                <td class="data-table__col">
+                    <span *ngIf="tableView === 'card'"
+                          class="data-table__identifier">Wine: </span>
+                    {{ barrel.wineName }}
+                </td>
+                <td class="data-table__col">
+                    <span *ngIf="tableView === 'card'"
+                          class="data-table__identifier">Capacity (l): </span>
+                    {{ barrel.capacity }}
+                </td>
+                <td class="data-table__col">
+                    <span *ngIf="tableView === 'card'"
+                          class="data-table__identifier">Occupied (l): </span>
+                    {{ barrel.currentCapacity }}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

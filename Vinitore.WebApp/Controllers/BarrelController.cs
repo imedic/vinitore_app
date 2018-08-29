@@ -4,6 +4,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Vinitore.Domain.Command.ApplicationService.Contracts;
+using Vinitore.Domain.Command.Commands;
+using Vinitore.Domain.Command.DomainModels.BarrelManagment;
+using Vinitore.Domain.Query.Queries;
+using Vinitore.Domain.Query.ViewModels;
 
 namespace Vinitore.WebApp.Controllers
 {
@@ -11,24 +16,41 @@ namespace Vinitore.WebApp.Controllers
     [ApiController]
     public class BarrelController : ControllerBase
     {
-        // GET: api/Barrel
+        private readonly IBarrelService _barrelService;
+        private readonly IBarrelQuery _barrelQuery;
+
+        public BarrelController(
+            IBarrelService barrelService,
+            IBarrelQuery barrelQuery
+        )
+        {
+            _barrelService = barrelService;
+            _barrelQuery = barrelQuery;
+        }
+
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IActionResult Get()
         {
-            return new string[] { "value1", "value2" };
+            var barrels = _barrelQuery.GetBarrels();
+
+            return Ok(barrels.ToArray());
         }
 
-        // GET: api/Barrel/5
         [HttpGet("{id}", Name = "GetBarrel")]
-        public string Get(int id)
+        public IActionResult Get(int id)
         {
-            return "value";
+            var barrel = _barrelQuery.GetBarrel(id);
+
+            return Ok(barrel.FirstOrDefault());
         }
 
-        // POST: api/Barrel
+
         [HttpPost]
-        public void Post([FromBody] string value)
+        public IActionResult Post([FromBody] BarrelCommand command)
         {
+            _barrelService.AddBarrel(command);
+
+            return Ok();
         }
 
         // PUT: api/Barrel/5

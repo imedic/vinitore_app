@@ -10,6 +10,11 @@ export interface WineDetails {
     type: WineType;
 }
 
+export interface WineSummary {
+    id: number;
+    name: string;
+}
+
 export enum WineType {
     Dry = 0,
     MediumDry,

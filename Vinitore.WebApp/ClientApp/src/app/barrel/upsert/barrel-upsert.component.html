@@ -1,0 +1,47 @@
+<div class="barrel-upsert">
+    <h1>Add new wine</h1>
+  
+    <div class="card" *ngIf="!isLoading">
+      <form [formGroup]="form">
+        <div class="form-control">
+        <label class="form-control__label">Barrel name</label>
+        <input class="input barrel-upsert__name" type="text" formControlName="name"/>
+        </div>
+
+        <div class="mod-display-flex">
+            <div class="form-control mod-margin-right-15">
+                <label class="form-control__label">Capacity (l)</label>
+                <input class="input barrel-upsert__capacity" type="number" formControlName="capacity" />
+            </div>
+            <div class="form-control">
+                <label class="form-control__label">Occupied (l)</label>
+                <input class="input barrel-upsert__capacity" type="number" formControlName="currentCapacity" />
+            </div>
+        </div>
+        <div class="mod-display-flex">
+            <div class="form-control barrel-upsert__type">
+                <div class="form-control__label">Barrel Type</div>
+                <label *ngFor="let option of barrelTypeOptions" class="radio">
+                  <input class="radio__input" formControlName="barrelType" [value]="option.value" type="radio" />
+                  <div class="radio__replacement"></div>
+                  <div class="radio__label">
+                    {{option.label}}
+                  </div>
+                </label>
+            </div>
+    
+            <div class="form-control">
+                <div class="form-control__label">Wine</div>
+                <select class="input barrel-upsert__wine" formControlName="wine">
+                    <option *ngFor="let wine of wineOptions" [value]="wine.id">{{ wine.name }}</option>
+                </select>
+            </div>
+        </div>
+      </form>
+  
+        <button class="btn btn--primary"
+                (click)="submit()"
+                [disabled]="isButtonDisabled">Save</button>
+    </div>
+  </div>
+  

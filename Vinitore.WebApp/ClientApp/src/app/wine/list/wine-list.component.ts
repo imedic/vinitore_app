@@ -15,7 +15,7 @@ export class WineListComponent implements OnInit {
     constructor(private wineService: WineService) {
         wineService.getWines().subscribe(result => {
             this.wines = result;
-        })
+        });
      }
 
      mapWineTypeEnumToString(type: WineType) {

@@ -41,7 +41,6 @@ namespace Vinitore.Infrastructure.Repositories
             entry.Type = wine.Type;
             entry.Year = wine.Year;
 
-
             _context.Wines.Update(entry);
             _context.SaveChanges();
         }
