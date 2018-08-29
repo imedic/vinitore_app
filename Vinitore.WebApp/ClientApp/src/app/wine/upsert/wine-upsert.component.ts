@@ -45,18 +45,7 @@ export class WineUpsertComponent implements OnInit {
             if (this.isEditMode) {
                 this.getDataAndPopulateForm();
             }
-            else {
-                this.createEmptyForm();
-            }
           });
-    }
-
-    createEmptyForm() {
-        this.form = this.fb.group({
-            name: "",
-            year: null,
-            wineType: 0
-        });
     }
 
     getDataAndPopulateForm() {

@@ -23,6 +23,11 @@ namespace Vinitore.Domain.Command.DomainModels.BarrelManagment
             SetProperties(command);
         }
 
+        public void Update(BarrelCommand command)
+        {
+            SetProperties(command);
+        }
+
         private void SetProperties(BarrelCommand command)
         {
             if (string.IsNullOrEmpty(command.Name))

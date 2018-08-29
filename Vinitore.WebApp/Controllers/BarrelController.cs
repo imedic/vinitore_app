@@ -55,14 +55,19 @@ namespace Vinitore.WebApp.Controllers
 
         // PUT: api/Barrel/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public IActionResult Put(int id, [FromBody] BarrelCommand command)
         {
+            _barrelService.UpdateBarrel(id, command);
+
+            return Ok();
         }
 
-        // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public IActionResult Delete(int id)
         {
+            _barrelService.DeleteBarrel(id);
+
+            return Ok();
         }
     }
 }

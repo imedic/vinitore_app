@@ -8,6 +8,7 @@ import { HttpModule } from '@angular/http';
 import { BarrelService } from './barrel.service';
 import { WineService } from '../wine/wine.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgxSmartModalModule } from 'ngx-smart-modal';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     RouterModule,
     BarrelRoutingModule,
     FormsModule, 
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxSmartModalModule.forRoot()
   ],
   providers:[
     BarrelService,

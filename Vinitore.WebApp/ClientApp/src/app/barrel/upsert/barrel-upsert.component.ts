@@ -48,13 +48,36 @@ export class BarrelUpsertComponent implements OnInit {
                 barrelType: 0,
                 wine: null
             });
-
+            
             this.isLoading = false;
+
+            this.route.params.subscribe(params => {
+                this.isEditMode = !!params.barrelId;
+                this.barrelId = this.isEditMode ? params.barrelId : null;
+          
+                if (this.isEditMode) {
+                    this.getDataAndPopulateForm();
+                }
+              });
         })
 
      }
 
     ngOnInit() { }
+
+    getDataAndPopulateForm() {
+        this.barrelService.getBarrel(this.barrelId).subscribe(result => {
+            this.barrel = result;
+
+            this.form = this.fb.group({
+                name: this.barrel.name,
+                capacity: this.barrel.capacity,
+                currentCapacity: this.barrel.currentCapacity,
+                barrelType: this.barrel.type,
+                wine: this.barrel.wineId
+            });
+        })
+    }
 
     submit() {
         const barrel:BarrelCommand = {
@@ -65,9 +88,19 @@ export class BarrelUpsertComponent implements OnInit {
             wineId: this.form.value.wine
         }
 
-        console.log(barrel);
-        this.barrelService.addBarrel(barrel).subscribe(result => {
-            console.log(result);
-        })
+        if (this.isEditMode) {
+            this.barrelService.updateBarrel(this.barrelId, barrel).subscribe(result => {
+                this.router.navigate(['../'], {
+                    relativeTo: this.route
+                });
+            })
+        }
+        else {
+            this.barrelService.addBarrel(barrel).subscribe(result => {
+                this.router.navigate(['../'], {
+                    relativeTo: this.route
+                });
+            })
+        }
     }
 }

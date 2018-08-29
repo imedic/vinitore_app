@@ -13,10 +13,10 @@
             </div>
         </div>
         <div class="text-right">
-            <!-- <button class="btn btn--danger mod-margin-right-10" (click)="openConfirmationModal()">
+            <button class="btn btn--danger mod-margin-right-10" (click)="openConfirmationModal()">
                 <i class="far fa-trash-alt mod-margin-right-5"></i>
                 Delete
-            </button> -->
+            </button>
             <button class="btn btn--primary" routerLink="edit">
                 <i class="far fa-edit mod-margin-right-5"></i>
                 Edit
@@ -46,7 +46,6 @@
                         </td>
                         <td class="data-table__col">
                             {{ transfer.barrelToName }}
-                            <!-- {{ mapbarrelTypeEnumToString(barrel.type) }} -->
                         </td>
                         <td class="data-table__col">
                             {{ transfer.Amount }}
@@ -64,14 +63,14 @@
     </div>
 </div>
 
-<!-- <ngx-smart-modal #myModal identifier="myModal">
+<ngx-smart-modal #myModal identifier="myModal">
     <div class="text-center">
         <h1>Delete barrel</h1>
         <p>Deleting this can't be undone</p>
         <div class="mod-margin-top-30">
             <button class="btn btn--link mod-margin-right-10" (click)="myModal.close()">Cancel</button>
-            <button class="btn btn--danger"  (click)="deletebarrel()">Delete</button>
+            <button class="btn btn--danger"  (click)="deleteBarrel()">Delete</button>
         </div>
     </div>
 
-</ngx-smart-modal> -->
+</ngx-smart-modal>

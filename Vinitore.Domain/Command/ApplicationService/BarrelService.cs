@@ -27,12 +27,16 @@ namespace Vinitore.Domain.Command.ApplicationService
 
         public void DeleteBarrel(int id)
         {
-            throw new NotImplementedException();
+            _repository.DeleteBarrel(id);
         }
 
         public void UpdateBarrel(int id, BarrelCommand command)
         {
-            throw new NotImplementedException();
+            var barrel = _repository.GetById(id);
+
+            barrel.Update(command);
+
+            _repository.UpdateBarrel(id, barrel);
         }
     }
 }
