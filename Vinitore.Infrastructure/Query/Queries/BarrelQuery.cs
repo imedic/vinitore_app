@@ -32,5 +32,12 @@ namespace Vinitore.Infrastructure.Query.Queries
 
             return query;
         }
+
+        public IQueryable<BarrelSummaryView> GetBarrelsForTransfer(int wineId, int barrelId)
+        {
+            var query = _context.Barrels.Where(y => y.WineId == wineId && y.Id != barrelId).ProjectTo<BarrelSummaryView>();
+
+            return query;
+        }
     }
 }

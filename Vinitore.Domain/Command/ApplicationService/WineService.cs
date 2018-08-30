@@ -24,6 +24,7 @@ namespace Vinitore.Domain.Command.ApplicationService
 
         public void UpdateWine(int id, WineCommand command)
         {
+            // TODO: check if there are transfer records with current wine, and update it's name
             var wine = _repository.GetById(id);
 
             wine.Update(command);
@@ -33,6 +34,8 @@ namespace Vinitore.Domain.Command.ApplicationService
 
         public void DeleteWine(int id)
         {
+            // TODO: check if there are transfer records with current wine, 
+            //       put wineId to null, and put wineName to name
             _repository.DeleteWine(id);
         }
     }

@@ -20,5 +20,7 @@ namespace Vinitore.Infrastructure.DbModel
         public int BarrelToId { get; set; }
 
         public int Amount { get; set; }
+
+        public DateTime Date { get; set; }
     }
 }

@@ -12,5 +12,7 @@ namespace Vinitore.Domain.Query.Queries
         IQueryable<BarrelView> GetBarrels();
 
         IQueryable<BarrelDetailsView> GetBarrel(int id);
+
+        IQueryable<BarrelSummaryView> GetBarrelsForTransfer(int wineId, int barrelId);
     }
 }

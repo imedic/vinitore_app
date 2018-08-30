@@ -44,6 +44,14 @@ namespace Vinitore.WebApp.Controllers
             return Ok(barrel.FirstOrDefault());
         }
 
+        [HttpGet("transfer-barrels", Name = "GetTransferBarrels")]
+        public IActionResult GetBarrelsWithSameWine([FromQuery] int barrelId, [FromQuery] int wineId)
+        {
+            var barrels = _barrelQuery.GetBarrelsForTransfer(wineId, barrelId);
+
+            return Ok(barrels.ToArray());
+        }
+
 
         [HttpPost]
         public IActionResult Post([FromBody] BarrelCommand command)

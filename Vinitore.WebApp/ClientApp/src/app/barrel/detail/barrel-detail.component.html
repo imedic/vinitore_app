@@ -11,6 +11,14 @@
                 <span class="subtitle subtitle--uppercased">Wine:</span> 
                 <a class="link link--blue" routerLink="/wines/{{barrel.wineId}}">{{ barrel.wineName }}</a> 
             </div>
+            <div class="mod-margin-top-5">
+                <span class="subtitle subtitle--uppercased">Capacity:</span> 
+                {{ barrel.capacity }} 
+            </div>
+            <div class="mod-margin-top-5">
+                <span class="subtitle subtitle--uppercased">Occupied:</span> 
+                {{ barrel.currentCapacity }} 
+            </div>
         </div>
         <div class="text-right">
             <button class="btn btn--danger mod-margin-right-10" (click)="openConfirmationModal()">
@@ -24,7 +32,14 @@
         </div>
     </div>
     <div class="mod-margin-top-40">
-        <h3 class="mod-margin-bottom-5">Barrels</h3>
+        <div class="mod-display-flex mod-align-center mod-margin-bottom-10">
+            <div class="mod-flex-grow">
+                <h3 class="mod-margin-bottom-none mod-margin-top-none">Transfers</h3>
+            </div>
+            <div>
+                <button class="btn" (click)="openTransferModal()">Transfer wine</button>
+            </div>
+        </div>
         <div class="data-table-scroll-container">
             <table class="data-table">
                 <thead>
@@ -35,28 +50,32 @@
                         <th class="data-table__col data-table__col--header">Date</th>
                     </tr>
                 </thead>
-                <tbody *ngIf="barrel.transfers && barrel.transfers.length > 0">
-                    <tr *ngFor="let transfer of barrel.barrels" class="data-table__row">
+                <tbody *ngIf="transfers && transfers.length > 0">
+                    <tr *ngFor="let transfer of transfers" class="data-table__row">
                         <td class="data-table__col">
-                            <a class="link link--blue" routerLink="{{barrel.id}}">
+                            <a class="link link--blue" routerLink="{{transfers.barrelFromId}}">
                                 <strong class="data-table__main">
                                     {{ transfer.barrelFromName }}
                                 </strong>
                             </a>
                         </td>
                         <td class="data-table__col">
-                            {{ transfer.barrelToName }}
+                            <a class="link link--blue" routerLink="{{transfers.barrelToId}}">
+                                <strong class="data-table__main">
+                                    {{ transfer.barrelToName }}
+                                </strong>
+                            </a>
                         </td>
                         <td class="data-table__col">
-                            {{ transfer.Amount }}
+                            {{ transfer.amount }}
                         </td>
                         <td class="data-table__col">
-                            {{ transfer.Date }}
+                            {{ transfer.date | date: 'HH:mm, dd. MM. yyyy.' }}
                         </td>
                     </tr>
                 </tbody>
             </table>
-            <div class="text-center mod-padding-30" *ngIf="!barrel.transfers || barrel.barrels.length === 0">
+            <div class="text-center mod-padding-30" *ngIf="!transfers || transfers.length === 0">
                 <i>There are no barrel transfers</i>
             </div>
         </div>
@@ -70,6 +89,56 @@
         <div class="mod-margin-top-30">
             <button class="btn btn--link mod-margin-right-10" (click)="myModal.close()">Cancel</button>
             <button class="btn btn--danger"  (click)="deleteBarrel()">Delete</button>
+        </div>
+    </div>
+
+</ngx-smart-modal>
+
+<ngx-smart-modal #transferModal identifier="transferModal" customClass="transfer-modal-container">
+    <div class="text-center" *ngIf="!isLoading">
+        <h1>Transfer wine</h1>
+        <form [formGroup]="form" class="mod-margin-top-40">
+            <div class="transfer-modal" [ngClass]="{'transfer-modal--reverse': !transferTo}">
+                <div class="transfer-modal__from">
+                    <div>
+                        <strong> {{ barrel.name }} </strong>
+                    </div>
+                    <div>
+                        Capacity: {{ barrel.capacity }}
+                    </div>
+                    <div>
+                        Occupied: {{ barrel.currentCapacity }}
+                    </div>
+                </div>
+
+                <div class="transfer-modal__switch">
+                    <button class="btn btn--icon" (click)="transferTo = !transferTo">
+                        <i class="fas fa-arrows-alt-h"></i>
+                    </button>
+                </div>
+
+                <div class="transfer-modal__to">
+                    <div class="form-control mod-margin-bottom-none">
+                        <select class="input transfer-modal__select" 
+                                formControlName="barrelTo"
+                                placeholder="Select barrel">
+                            <option *ngFor="let barrel of compatibleBarrels" [value]="barrel.id">{{ barrel.name }}</option>
+                        </select>
+                    </div>
+                    <div *ngIf="selectedBarrel" class="mod-margin-top-5">
+                        <div>Capacity: {{ selectedBarrel.capacity }}</div>
+                        <div>Occupied: {{ selectedBarrel.currentCapacity }}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-control mod-margin-top-40">
+                <label class="form-control__label">Amount (l)</label>
+                <input type="number" class="input" formControlName="amount" />
+            </div>
+        </form>
+        <div class="mod-margin-top-30">
+            <button class="btn btn--link mod-margin-right-10" (click)="transferModal.close()">Cancel</button>
+            <button class="btn btn--primary"  (click)="transferWine()">Transfer</button>
         </div>
     </div>
 

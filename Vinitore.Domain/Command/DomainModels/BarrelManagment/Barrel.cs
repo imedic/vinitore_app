@@ -28,6 +28,16 @@ namespace Vinitore.Domain.Command.DomainModels.BarrelManagment
             SetProperties(command);
         }
 
+        public void AddAmount(int amount)
+        {
+            CurrentCapacity = CurrentCapacity + amount;
+        }
+
+        public void RemoveAmount(int amount)
+        {
+            CurrentCapacity = CurrentCapacity - amount;
+        }
+
         private void SetProperties(BarrelCommand command)
         {
             if (string.IsNullOrEmpty(command.Name))

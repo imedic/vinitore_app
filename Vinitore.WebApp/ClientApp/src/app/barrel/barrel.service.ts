@@ -37,6 +37,18 @@ export class BarrelService {
     return this.http.put(`${this.barrelUrl}/${id}`, barrel, httpOptions);
   }
 
+  addTransfer(command: any): Observable<any> {
+    return this.http.post<any>("api/transfer", command, httpOptions);
+  }
+
+  getBarrelsForTransfer(barrelId: number, wineId: number): Observable<any> {
+    return this.http.get<any>(`api/barrel/transfer-barrels?barrelId=${barrelId}&wineId=${wineId}`);
+  }
+
+  getTransfers(id): Observable<any> {
+    return this.http.get<any>(`api/transfer/${id}`);
+  }
+
   mapBarrelTypeFromEnumToText(type: BarrelType) {
     switch (type) {
       case BarrelType.Inox:

@@ -29,6 +29,10 @@ export interface BarrelCommand {
     wineId: number;
 }
 
+export interface TransferCommand {
+    
+}
+
 export enum BarrelType {
     Inox = 0,
     Wood,

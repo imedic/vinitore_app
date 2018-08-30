@@ -1,0 +1,42 @@
+.transfer-modal-container {
+    &.nsm-dialog {
+        max-width: 600px;
+    }
+}
+
+.transfer-modal {
+    display: flex;
+    justify-content: space-around;
+    text-align: left;
+
+    &__from,
+    &__to {
+        width: 200px;
+    }
+
+    &__from {
+        order: 1;
+    }
+
+    &__switch {
+        order: 2;
+    }
+
+    &__to {
+        order: 3;
+    }
+
+    &__select {
+        width: 200px;
+    }
+
+    &--reverse {
+        .transfer-modal__from {
+            order: 3;
+        }
+
+        .transfer-modal__to {
+            order: 1;
+        }
+    }
+}
