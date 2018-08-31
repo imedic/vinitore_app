@@ -53,18 +53,25 @@
                 <tbody *ngIf="transfers && transfers.length > 0">
                     <tr *ngFor="let transfer of transfers" class="data-table__row">
                         <td class="data-table__col">
-                            <a class="link link--blue" routerLink="{{transfers.barrelFromId}}">
+                            <a class="link link--blue" routerLink="/barrels/{{transfer.barrelFromId}}" *ngIf="transfer.barrelFromId != barrelId">
                                 <strong class="data-table__main">
                                     {{ transfer.barrelFromName }}
                                 </strong>
                             </a>
+
+                            <strong class="data-table__main" *ngIf="transfer.barrelFromId == barrelId">
+                                    {{ transfer.barrelFromName }}
+                            </strong>
                         </td>
                         <td class="data-table__col">
-                            <a class="link link--blue" routerLink="{{transfers.barrelToId}}">
+                            <a class="link link--blue" routerLink="/barrels/{{transfer.barrelToId}}"  *ngIf="transfer.barrelToId != barrelId">
                                 <strong class="data-table__main">
                                     {{ transfer.barrelToName }}
                                 </strong>
                             </a>
+                            <strong class="data-table__main" *ngIf="transfer.barrelToId == barrelId">
+                                {{ transfer.barrelToName }}
+                            </strong>
                         </td>
                         <td class="data-table__col">
                             {{ transfer.amount }}

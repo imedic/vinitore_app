@@ -33,7 +33,7 @@ export class BarrelDetailComponent implements OnInit {
             this.barrelId = params.barrelId;
 
             this.fetchTransfers();
-            this.fetchBarrel();
+            this.fetchBarrel(true);
         });
 
         this.form = this.fb.group({
@@ -49,14 +49,16 @@ export class BarrelDetailComponent implements OnInit {
 
     ngOnInit() { }
 
-    fetchBarrel() {
+    fetchBarrel(fetchTransferBarrels: boolean = false) {
         this.barrelService.getBarrel(this.barrelId).subscribe(result => {
             this.barrel = result;
             
-            this.barrelService.getBarrelsForTransfer(this.barrelId, this.barrel.wineId).subscribe(transferBarrels => {
-                this.compatibleBarrels = transferBarrels;
-                this.isLoading = false;
-            })
+            if (fetchTransferBarrels) {
+                this.barrelService.getBarrelsForTransfer(this.barrelId, this.barrel.wineId).subscribe(transferBarrels => {
+                    this.compatibleBarrels = transferBarrels;
+                    this.isLoading = false;
+                })
+            }
         })
     }
 
@@ -108,6 +110,7 @@ export class BarrelDetailComponent implements OnInit {
 
             this.barrelService.addTransfer(command).subscribe(result => {
                 this.fetchTransfers();
+                this.fetchBarrel();
                 this.ngxSmartModalService.getModal('transferModal').close()
             })
         }

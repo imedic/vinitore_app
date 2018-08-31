@@ -21,7 +21,9 @@ namespace Vinitore.Infrastructure.Query.Queries
 
         public IQueryable<TransferView> GetTransfers(int barrelId)
         {
-            var query = _context.Transfers.Where(y => y.BarrelFromId == barrelId || y.BarrelToId == barrelId).ProjectTo<TransferView>();
+            var query = _context.Transfers.Where(y => y.BarrelFromId == barrelId || y.BarrelToId == barrelId)
+                                        .OrderByDescending(y => y.Date)
+                                        .ProjectTo<TransferView>();
 
             return query;
         }
