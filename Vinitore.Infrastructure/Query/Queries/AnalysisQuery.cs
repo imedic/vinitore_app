@@ -26,6 +26,13 @@ namespace Vinitore.Infrastructure.Query.Queries
             return query;
         }
 
+        public IQueryable<AnalysisDetailView> GetAnalysesDetailList(int id)
+        {
+            var query = _context.Analysis.Where(y => y.BarrelId == id).ProjectTo<AnalysisDetailView>();
+
+            return query;
+        }
+
         public IQueryable<AnalysisDetailView> GetAnalysis(int id)
         {
             var query = _context.Analysis.Where(y => y.Id == id).ProjectTo<AnalysisDetailView>();

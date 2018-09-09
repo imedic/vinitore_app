@@ -1,3 +1,4 @@
+import { AnalysisService } from './../analysis/analysis.service';
 import { BarrelComponent } from './barrel.component';
 import { BarrelRoutingModule, routableComponents } from './barrel-routing-module';
 import { NgModule } from '@angular/core';
@@ -27,7 +28,8 @@ import { NgxSmartModalModule } from 'ngx-smart-modal';
   ],
   providers:[
     BarrelService,
-    WineService
+    WineService,
+    AnalysisService
   ],
   exports: [
     BarrelRoutingModule

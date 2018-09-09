@@ -52,7 +52,6 @@ namespace Vinitore.WebApp.Controllers
             return Ok(barrels.ToArray());
         }
 
-
         [HttpPost]
         public IActionResult Post([FromBody] BarrelCommand command)
         {

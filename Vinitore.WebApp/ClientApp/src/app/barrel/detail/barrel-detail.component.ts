@@ -1,3 +1,4 @@
+import { AnalysisService } from './../../analysis/analysis.service';
 import { BarrelService } from './../barrel.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -17,6 +18,7 @@ export class BarrelDetailComponent implements OnInit {
     form: FormGroup;
 
     transfers = [];
+    analyses = [];
 
     compatibleBarrels = null;
     selectedBarrel = null;
@@ -26,12 +28,14 @@ export class BarrelDetailComponent implements OnInit {
         private route: ActivatedRoute,
         private router: Router,
         private barrelService : BarrelService,
+        private analysisService : AnalysisService,
         private ngxSmartModalService: NgxSmartModalService,
         private fb: FormBuilder,
     ) {
         this.route.params.subscribe(params => {
             this.barrelId = params.barrelId;
 
+            this.fetchAnalyses();
             this.fetchTransfers();
             this.fetchBarrel(true);
         });
@@ -58,6 +62,12 @@ export class BarrelDetailComponent implements OnInit {
                     this.isLoading = false;
                 })
             }
+        })
+    }
+
+    fetchAnalyses() {
+        this.analysisService.getAnalysesFromBarrel(this.barrelId).subscribe(result => {
+            this.analyses = result;
         })
     }
 

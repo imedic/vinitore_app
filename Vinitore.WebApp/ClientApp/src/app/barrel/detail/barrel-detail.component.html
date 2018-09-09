@@ -87,6 +87,56 @@
             </div>
         </div>
     </div>
+
+    <div class="mod-margin-top-40">
+        <div class="mod-display-flex mod-align-center mod-margin-bottom-10">
+            <div class="mod-flex-grow">
+                <h3 class="mod-margin-bottom-none mod-margin-top-none">Analyses</h3>
+            </div>
+            <div>
+                <button class="btn" [routerLink]="['/analysis/create']" >Add Analysis</button>
+            </div>
+        </div>
+        <div class="data-table-scroll-container">
+            <table class="data-table">
+                <thead>
+                    <tr class="data-table__row">
+                        <th class="data-table__col data-table__col--header">Date</th>
+                        <th class="data-table__col data-table__col--header">Alcohol</th>
+                        <th class="data-table__col data-table__col--header">Acid</th>
+                        <th class="data-table__col data-table__col--header">Total Dry Extract</th>
+                        <th class="data-table__col data-table__col--header">Total Sulphur Dioxide</th>
+                    </tr>
+                </thead>
+                <tbody *ngIf="analyses && analyses.length > 0">
+                    <tr *ngFor="let analysis of analyses" class="data-table__row">
+                        <td class="data-table__col">
+                            <a class="link link--blue" routerLink="/analysis/{{analysis.id}}">
+                                <strong class="data-table__main">
+                                    {{ analysis.date |  date: 'HH:mm, dd. MM. yyyy.' }}
+                                </strong>
+                            </a>
+                        </td>
+                        <td class="data-table__col">
+                            {{ analysis.alcohol }}
+                        </td>
+                        <td class="data-table__col">
+                            {{ analysis.acid }}
+                        </td>
+                        <td class="data-table__col">
+                            {{ analysis.totalDryExtract }}
+                        </td>
+                        <td class="data-table__col">
+                            {{ analysis.totalSulphurDioxide }}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="text-center mod-padding-30" *ngIf="!transfers || transfers.length === 0">
+                <i>There are no analysis</i>
+            </div>
+        </div>
+    </div>
 </div>
 
 <ngx-smart-modal #myModal identifier="myModal">

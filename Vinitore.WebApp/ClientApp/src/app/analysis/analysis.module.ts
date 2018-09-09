@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { AnalysisComponent } from './analysis.component';
 import { AnalysisService } from './analysis.service';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,9 @@ import { AnalysisService } from './analysis.service';
     HttpClientModule,
     CommonModule,
     RouterModule,
-    AnalysisRoutingModule
+    AnalysisRoutingModule,
+    FormsModule, 
+    ReactiveFormsModule,
   ],
   providers:[
     AnalysisService

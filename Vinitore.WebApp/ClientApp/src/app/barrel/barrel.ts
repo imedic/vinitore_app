@@ -3,7 +3,9 @@ export interface Barrel {
     type: BarrelType;
     capacity: number;
     currentCapacity: number;
+    wineId: number;
     wineName: string;
+    Id: number;
 }
 
 export interface BarrelDetail {
@@ -14,7 +16,6 @@ export interface BarrelDetail {
     wineName: string;
     wineId: number;
     transfers: Transfer[];
-
 }
 
 export interface Transfer {

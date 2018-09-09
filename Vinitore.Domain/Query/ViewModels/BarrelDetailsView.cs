@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Vinitore.Domain.Command.DomainModels.AnalyisisManagment;
 using Vinitore.Domain.Command.DomainModels.BarrelManagment;
 using Vinitore.Domain.Command.DomainModels.TransferManagment;
 
@@ -14,6 +15,5 @@ namespace Vinitore.Domain.Query.ViewModels
         public int CurrentCapacity { get; set; }
         public string WineName { get; set; }
         public int WineId { get; set; }
-        public ICollection<Transfer> Transfers { get; set; }
     }
 }

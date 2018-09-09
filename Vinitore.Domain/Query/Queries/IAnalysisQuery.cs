@@ -10,6 +10,8 @@ namespace Vinitore.Domain.Query.Queries
     {
         IQueryable<AnalysisView> GetAnalyses();
 
+        IQueryable<AnalysisDetailView> GetAnalysesDetailList(int id);
+
         IQueryable<AnalysisDetailView> GetAnalysis(int id);
     }
 }

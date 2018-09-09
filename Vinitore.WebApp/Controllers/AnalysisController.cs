@@ -28,9 +28,22 @@ namespace Vinitore.WebApp.Controllers
 
 
         [HttpGet]
-        public IActionResult Get()
+        public IActionResult Get([FromQuery] int? fromBarrelId)
         {
             var analyses = _query.GetAnalyses();
+
+            if (fromBarrelId != null)
+            {
+                analyses.Where(b => b.BarrelId == fromBarrelId);
+            }
+
+            return Ok(analyses.ToArray());
+        }
+
+        [HttpGet("details", Name = "GetAnalysisDetailList")]
+        public IActionResult GetDetailList([FromQuery] int fromBarrelId)
+        {
+            var analyses = _query.GetAnalysesDetailList(fromBarrelId);
 
             return Ok(analyses.ToArray());
         }

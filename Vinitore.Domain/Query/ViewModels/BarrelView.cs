@@ -11,6 +11,7 @@ namespace Vinitore.Domain.Query.ViewModels
         public int Id { get; set; }
         public int Capacity { get; set; }
         public int CurrentCapacity { get; set; }
+        public int WineId { get; set; }
         public string WineName { get; set; }
         public BarrelType Type { get; set; }
     }

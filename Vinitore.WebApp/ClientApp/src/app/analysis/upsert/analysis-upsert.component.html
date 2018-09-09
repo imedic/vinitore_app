@@ -1,0 +1,53 @@
+<div class="barrel-upsert">
+        <h1>Add new analysis</h1>
+      
+        <div class="card" *ngIf="!isLoading">
+          <form [formGroup]="form">   
+            <div class="form-control">
+                <div class="form-control__label">Barrel</div>
+                <select class="input" formControlName="barrel">
+                    <option *ngFor="let barrel of barrelOptions" [value]="barrel.id">{{ barrel.name }}</option>
+                </select>
+            </div>
+            <div class="mod-display-flex">
+                <div class="form-control mod-margin-right-15">
+                    <label class="form-control__label">Alcohol</label>
+                    <input class="input" type="number" formControlName="alcohol" />
+                </div>
+                <div class="form-control">
+                    <label class="form-control__label">Acid</label>
+                    <input class="input" type="number" formControlName="acid" />
+                </div>
+            </div>
+            <div class="mod-display-flex">
+                <div class="form-control mod-margin-right-15">
+                    <label class="form-control__label">Volatile Acid</label>
+                    <input class="input" type="number" formControlName="volatileAcid" />
+                </div>
+                <div class="form-control">
+                    <label class="form-control__label">Total Dry Extract</label>
+                    <input class="input" type="number" formControlName="totalDryExtract" />
+                </div>
+            </div>
+            <div class="mod-display-flex">
+                <div class="form-control mod-margin-right-15">
+                    <label class="form-control__label">Total Sulphur Dioxide</label>
+                    <input class="input" type="number" formControlName="totalSulphurDioxide" />
+                </div>
+                <div class="form-control">
+                    <label class="form-control__label">Free Sulphur Dioxide</label>
+                    <input class="input" type="number" formControlName="freeSulphurDioxide" />
+                </div>
+            </div>
+            <div class="form-control">
+                <label class="form-control__label">Ph</label>
+                <input class="input" type="number" formControlName="ph" />
+            </div>
+          </form>
+      
+            <button class="btn btn--primary"
+                    (click)="submit()"
+                    [disabled]="isButtonDisabled">Save</button>
+        </div>
+      </div>
+      

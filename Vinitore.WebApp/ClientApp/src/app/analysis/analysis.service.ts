@@ -23,6 +23,10 @@ export class AnalysisService {
     return this.http.get<AnalysisDetailView>(url);
   }
 
+  getAnalysesFromBarrel(id: number): Observable<AnalysisDetailView[]> {
+    return this.http.get<AnalysisDetailView[]>(`${this.analysisUrl}/details?fromBarrelId=${id}`)
+  }
+
   addAnalysis(analysis: AnalysisCommand): Observable<AnalysisCommand> {
     return this.http.post<AnalysisCommand>(this.analysisUrl, analysis, httpOptions);
   }
