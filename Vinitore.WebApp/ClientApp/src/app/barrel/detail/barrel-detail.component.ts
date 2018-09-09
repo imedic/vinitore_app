@@ -44,7 +44,6 @@ export class BarrelDetailComponent implements OnInit {
         this.form.get('barrelTo').valueChanges.subscribe(val => {
             this.selectedBarrel = this.compatibleBarrels.filter(b => b.id == val)[0];
         });
-        
      }
 
     ngOnInit() { }

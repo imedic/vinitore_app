@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Vinitore.Domain.Command.Commands;
+using Vinitore.Domain.Command.DomainModels.AnalyisisManagment;
 using Vinitore.Domain.Command.DomainModels.BarrelManagment;
 using Vinitore.Domain.Command.DomainModels.TransferManagment;
 using Vinitore.Domain.Command.DomainModels.WineManagment;
@@ -31,6 +32,10 @@ namespace Vinitore.Infrastructure.EntityMappers
                 cfg.CreateMap<Wine, WineTb>();
                 cfg.CreateMap<Barrel, BarrelTb>();
                 cfg.CreateMap<Transfer, TransferTb>();
+
+                cfg.CreateMap<Analysis, AnalysisTb>();
+                cfg.CreateMap<AnalysisTb, AnalysisView>();
+                cfg.CreateMap<AnalysisTb, AnalysisDetailView>();
             });
         }
     }

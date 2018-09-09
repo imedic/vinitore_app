@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using Vinitore.Infrastructure;
@@ -9,9 +10,10 @@ using Vinitore.Infrastructure;
 namespace Vinitore.Infrastructure.Migrations
 {
     [DbContext(typeof(VinitoreContext))]
-    partial class VinitoreContextModelSnapshot : ModelSnapshot
+    [Migration("20180831093609_AnalysisTbAdded")]
+    partial class AnalysisTbAdded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

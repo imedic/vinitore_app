@@ -1,0 +1,42 @@
+<h1>Analysis detail</h1>
+
+<div class="card" *ngIf="!isLoading">
+    <h2>{{ analysis.wineName }}</h2>
+    <h3 class="mod-margin-bottom-10">{{ analysis.barrelName }} </h3>
+    <div>{{ analysis.date | date }}</div>
+    
+    <div class="mod-display-flex mod-margin-top-40">
+        <div class="analysis-record">
+            <span class="subtitle mod-margin-right-10">Alcohol</span>
+            <span>{{ analysis.alcohol }}</span>
+        </div>
+        <div class="analysis-record">
+            <span class="subtitle mod-margin-right-10">Acid</span>
+            <span>{{ analysis.acid }}</span>
+        </div>
+    </div>
+    <div class="mod-display-flex mod-margin-top-10">
+        <div class="analysis-record">
+            <span class="subtitle mod-margin-right-10">Volatile Acid</span>
+            <span>{{ analysis.volatileAcid }}</span>
+        </div>
+        <div class="analysis-record">
+            <span class="subtitle mod-margin-right-10">Total Dry Extract</span>
+            <span>{{ analysis.totalDryExtract }}</span>
+        </div>
+    </div>
+    <div class="mod-display-flex mod-margin-top-10">
+        <div class="analysis-record">
+            <span class="subtitle mod-margin-right-10">Total SO2</span>
+            <span>{{ analysis.totalSulphurDioxide }}</span>
+        </div>
+        <div class="analysis-record">
+            <span class="subtitle mod-margin-right-10">Free SO2</span>
+            <span>{{ analysis.freeSulphurDioxide }}</span>
+        </div>
+    </div>
+    <div class="analysis-record mod-margin-top-10">
+        <span class="subtitle mod-margin-right-10">Ph</span>
+        <span>{{ analysis.ph }}</span>
+    </div>
+</div>

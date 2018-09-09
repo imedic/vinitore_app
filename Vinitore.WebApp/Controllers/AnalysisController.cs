@@ -4,6 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Vinitore.Domain.Command.ApplicationService.Contracts;
+using Vinitore.Domain.Command.Commands;
+using Vinitore.Domain.Query.Queries;
 
 namespace Vinitore.WebApp.Controllers
 {
@@ -11,36 +14,43 @@ namespace Vinitore.WebApp.Controllers
     [ApiController]
     public class AnalysisController : ControllerBase
     {
-        // GET: api/Analysis
+        private readonly IAnalysisService _sevice;
+        private readonly IAnalysisQuery _query;
+
+        public AnalysisController(
+            IAnalysisService service,
+            IAnalysisQuery query
+        )
+        {
+            _sevice = service;
+            _query = query;
+        }
+
+
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IActionResult Get()
         {
-            return new string[] { "value1", "value2" };
+            var analyses = _query.GetAnalyses();
+
+            return Ok(analyses.ToArray());
         }
 
-        // GET: api/Analysis/5
-        [HttpGet("{id}", Name = "Get")]
-        public string Get(int id)
+
+        [HttpGet("{id}", Name = "GetAnalysis")]
+        public IActionResult Get(int id)
         {
-            return "value";
+            var analysis = _query.GetAnalysis(id);
+
+            return Ok(analysis.FirstOrDefault());
         }
 
-        // POST: api/Analysis
+
         [HttpPost]
-        public void Post([FromBody] string value)
+        public IActionResult Post([FromBody] AnalysisCommand command)
         {
-        }
+            _sevice.AddAnalysis(command);
 
-        // PUT: api/Analysis/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE: api/ApiWithActions/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
+            return Ok();
         }
     }
 }

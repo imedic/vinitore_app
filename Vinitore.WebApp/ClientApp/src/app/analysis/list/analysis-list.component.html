@@ -1,1 +1,61 @@
-<h1>Analysis</h1>
+<h1>Analyses</h1>
+
+<div class="input-group">
+    <div class="input-group__addon input-group__addon--prepend mod-margin-right-15">
+        <button class="btn btn--icon btn--icon-rounded btn--primary"
+                [routerLink]='["/analysis/create"]'>
+            <i class="fa fa-plus"></i>
+        </button>
+    </div>
+    <input class="input input--rounded input--full-width" placeholder="Filter analyses" type="text">
+    <div class="input-group__addon input-group__addon--append mod-margin-left-15">
+        <div class="btn-group">
+            <button class="btn" 
+                    (click)="tableView = 'list'"
+                    [ngClass]="tableView === 'list' ? 'btn--primary' : 'btn--outline'">
+                <i class="fas fa-bars"></i>
+            </button>
+            <button class="btn" 
+                    (click)="tableView = 'card'"
+                    [ngClass]="tableView === 'card' ? 'btn--primary' : 'btn--outline'">
+                <i class="fas fa-th-large"></i>
+            </button>
+        </div>
+    </div>
+</div>
+<div class="data-table-scroll-container">
+    <table class="data-table mod-margin-top-20 mod-margin-bottom-40" [ngClass]="{'data-table--cards': tableView === 'card'}">
+        <thead>
+            <tr class="data-table__row">
+                <th class="data-table__col data-table__col--header">Date</th>
+                <th class="data-table__col data-table__col--header">Wine</th>
+                <th class="data-table__col data-table__col--header">Barrel</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let analysis of analyses" class="data-table__row">
+                <td class="data-table__col">
+                    <a class="link link--blue" routerLink="{{analysis.id}}">
+                        <strong class="data-table__main">
+                            {{ analysis.date | date: 'dd.MM.yyyy. hh:mm' }}
+                        </strong>
+                    </a>
+                </td>
+                <td class="data-table__col">
+                    <a class="link link--blue" routerLink="/wines/{{analysis.wineId}}">
+                        <strong class="data-table__main">
+                            {{ analysis.wineName }}
+                        </strong>
+                    </a>                
+                </td>
+                <td class="data-table__col">
+                    <a class="link link--blue" routerLink="/barrels/{{analysis.barrelId}}">
+                        <strong class="data-table__main">
+                            {{ analysis.barrelName }}
+                        </strong>
+                    </a>                
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

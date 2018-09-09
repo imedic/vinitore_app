@@ -30,6 +30,10 @@ namespace Vinitore.Infrastructure
             services.AddScoped<ITransferRepository, TransferRepository>();
             services.AddScoped<ITransferService, TransferService>();
 
+            services.AddScoped<IAnalysisQuery, AnalysisQuery>();
+            services.AddScoped<IAnalysisRepository, AnalysisRepository>();
+            services.AddScoped<IAnalysisService, AnalysisService>();
+
             services.AddDbContext<VinitoreContext>(options => options.UseNpgsql("User ID=vinitore;Password=vinitore;Host=localhost;Port=5432;Database=vinitore"));
             services.AddDbContext<CommandContext>(options => options.UseNpgsql("User ID=vinitore;Password=vinitore;Host=localhost;Port=5432;Database=vinitore"));
             services.AddDbContext<Query.QueryContext>(options => options.UseNpgsql("User ID=vinitore;Password=vinitore;Host=localhost;Port=5432;Database=vinitore"));

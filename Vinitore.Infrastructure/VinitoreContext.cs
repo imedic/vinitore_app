@@ -18,5 +18,7 @@ namespace Vinitore.Infrastructure
         public DbSet<WineTb> Wines { get; set; }
         public DbSet<BarrelTb> Barrels { get; set; }
         public DbSet<TransferTb> Transfers { get; set; }
+
+        public DbSet<AnalysisTb> Analysis { get; set; }
     }
 }

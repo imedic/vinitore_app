@@ -59,6 +59,6 @@ export class BarrelService {
         return "Wood";
       default:
         return "N/A";
-    }
+      }
   }
 }

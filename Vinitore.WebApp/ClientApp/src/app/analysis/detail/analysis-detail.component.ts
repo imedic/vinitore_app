@@ -1,4 +1,6 @@
+import { AnalysisService } from './../analysis.service';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
     selector: 'analysis-detail',
@@ -6,7 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class AnalysisDetailComponent implements OnInit {
-    constructor() { }
+    isLoading = true;
+    analysis = null;
+
+    constructor(
+        analysisService: AnalysisService,
+        private route: ActivatedRoute
+    ) {
+        
+        route.params.subscribe(params => {
+            analysisService.getAnalysis(params.analysisId).subscribe(result => {
+                this.analysis = result;
+                this.isLoading = false;
+            })
+
+        })
+     }
 
     ngOnInit() { }
 }

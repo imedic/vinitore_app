@@ -5,6 +5,7 @@ import { routableComponents, AnalysisRoutingModule } from './analysis-routing-mo
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { AnalysisComponent } from './analysis.component';
+import { AnalysisService } from './analysis.service';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { AnalysisComponent } from './analysis.component';
     AnalysisRoutingModule
   ],
   providers:[
+    AnalysisService
   ],
   exports: [
     AnalysisRoutingModule

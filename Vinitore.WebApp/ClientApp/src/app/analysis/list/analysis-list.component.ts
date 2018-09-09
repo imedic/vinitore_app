@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AnalysisService } from '../analysis.service';
 
 @Component({
     selector: 'analysis-list',
@@ -6,7 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class AnalysisListComponent implements OnInit {
-    constructor() { }
+    analyses = [];
+
+    constructor(private analysisService: AnalysisService) {
+        analysisService.getAnalyses().subscribe(result => {
+            this.analyses = result;
+        });
+     }
 
     ngOnInit() { }
 }
